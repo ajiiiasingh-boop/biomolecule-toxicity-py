@@ -1,0 +1,58 @@
+[
+  {
+    "id": "enzyme-inhibition",
+    "label": "Enzyme inhibition",
+    "biomolecule": "protein",
+    "oneLine": "A toxicant occupies or blocks a catalytic site, so a present, correctly folded enzyme stops working.",
+    "tell": "Activity falls while the amount of protein and its fold are unchanged."
+  },
+  {
+    "id": "oxidative-damage",
+    "label": "Oxidative damage",
+    "biomolecule": "dna-rna",
+    "oneLine": "Reactive oxygen species chemically modify a biomolecule — classically oxidising guanine in DNA and breaking the sugar–phosphate backbone.",
+    "tell": "ROS rise, the antioxidant buffer is consumed, and damage markers rise together with dose."
+  },
+  {
+    "id": "lipid-peroxidation",
+    "label": "Lipid peroxidation / membrane damage",
+    "biomolecule": "lipid",
+    "oneLine": "A radical chain reaction consumes polyunsaturated fatty acids in the bilayer and destroys barrier function.",
+    "tell": "MDA and 4-HNE rise, polyunsaturated tails are consumed, and the damage keeps spreading after the toxicant is gone."
+  },
+  {
+    "id": "protein-denaturation",
+    "label": "Protein denaturation / structural alteration",
+    "biomolecule": "protein",
+    "oneLine": "The three-dimensional fold is lost while the peptide backbone stays intact, and exposed hydrophobic surfaces drive aggregation.",
+    "tell": "Secondary-structure content and melting temperature fall while total protein stays constant."
+  },
+  {
+    "id": "metabolic-interference",
+    "label": "Interference with carbohydrate / energy metabolism",
+    "biomolecule": "carbohydrate",
+    "oneLine": "Fuel handling is disrupted, so the cell consumes more carbohydrate and recovers less ATP from it.",
+    "tell": "Glucose uptake and lactate rise while oxygen consumption and ATP fall."
+  },
+  {
+    "id": "nucleic-acid-intercalation",
+    "label": "Nucleic acid intercalation / transcription interference",
+    "biomolecule": "dna-rna",
+    "oneLine": "A flat aromatic molecule slides between stacked base pairs, distorting the helix and stalling the polymerases that must read it.",
+    "tell": "New RNA synthesis collapses first; DNA content per cell is unchanged."
+  },
+  {
+    "id": "substrate-depletion",
+    "label": "Substrate depletion",
+    "biomolecule": "carbohydrate",
+    "oneLine": "The reaction slows because the starting material has run out, not because anything is damaged.",
+    "tell": "Substrate concentration falls. If substrate is piling up instead, this is not your answer."
+  },
+  {
+    "id": "membrane-transport-block",
+    "label": "Membrane transport block",
+    "biomolecule": "lipid",
+    "oneLine": "A transporter is blocked, so a molecule cannot cross an intact membrane.",
+    "tell": "Concentrations differ sharply across a membrane that is otherwise undamaged."
+  }
+]

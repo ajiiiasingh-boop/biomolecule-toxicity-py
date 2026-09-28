@@ -1,0 +1,1530 @@
+[
+  {
+    "id": "case-01",
+    "number": "01",
+    "title": "The Silent Enzyme",
+    "codename": "BTD‑2041‑A",
+    "difficulty": "Introductory",
+    "channel": "protein",
+    "specimen": "Hepatocyte-like cell line (simulated culture)",
+    "exposure": "Compound RX‑114, four dose levels",
+    "duration": "24 h",
+    "brief": "A cultured cell line has stopped producing a metabolite it normally makes in quantity. The cells are alive, they look normal under the microscope, and the raw material for the reaction is not in short supply — in fact there is more of it than usual. Something has switched off a step, without switching off the cell.",
+    "evidence": [
+      {
+        "id": "A",
+        "kind": "Molecular Observation",
+        "icon": "microscope",
+        "title": "The machine is present but idle",
+        "body": "A 62 kDa cytosolic enzyme is the prime suspect. Its abundance on a simulated immunoblot is identical to control at every dose — the cell has not stopped making it and has not degraded it. Its melting temperature is also unchanged, so the fold is intact. But structural mapping shows a small molecule sitting in the catalytic pocket, and the catalytic serine residue carries a covalent modification that is absent from control.",
+        "readouts": [
+          {
+            "label": "Enzyme abundance (immunoblot)",
+            "value": "100% of control",
+            "state": "normal"
+          },
+          {
+            "label": "Melting temperature (Tm)",
+            "value": "62.1 °C vs 62.4 °C control",
+            "state": "normal"
+          },
+          {
+            "label": "Catalytic pocket",
+            "value": "Occupied — small molecule bound",
+            "state": "alert"
+          },
+          {
+            "label": "Catalytic serine",
+            "value": "Covalently modified",
+            "state": "alert"
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "kind": "Experimental Data",
+        "icon": "chart",
+        "title": "Rate falls, raw material piles up",
+        "body": "Activity drops steadily with dose. At the same time the substrate — the molecule the enzyme is supposed to consume — accumulates. A reaction that is slowing down because it has run out of starting material does the opposite of this.",
+        "datasetId": "c1-dose",
+        "readouts": [
+          {
+            "label": "Vmax",
+            "value": "31% of control at high dose",
+            "state": "alert"
+          },
+          {
+            "label": "Km",
+            "value": "47 µM vs 48 µM control — unchanged",
+            "state": "normal"
+          },
+          {
+            "label": "Rescue by excess substrate",
+            "value": "None",
+            "state": "alert"
+          }
+        ]
+      },
+      {
+        "id": "C",
+        "kind": "Biomolecule Clue",
+        "icon": "dna",
+        "title": "What the suspect molecule is made of",
+        "body": "The affected molecule is a polymer of twenty different monomer types joined by one kind of covalent bond. It folds into a single specific three-dimensional shape, and that shape includes a pocket whose geometry and charge match one particular small molecule. It is not consumed by the reaction it speeds up. Its performance is quoted in micromoles of product per minute per milligram.",
+        "readouts": [
+          {
+            "label": "Monomer variety",
+            "value": "20 types",
+            "state": "info"
+          },
+          {
+            "label": "Linkage",
+            "value": "Peptide bonds",
+            "state": "info"
+          },
+          {
+            "label": "Functional unit",
+            "value": "Folded 3-D pocket (active site)",
+            "state": "info"
+          },
+          {
+            "label": "Activity unit",
+            "value": "µmol·min⁻¹·mg⁻¹",
+            "state": "info"
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "kind": "Cellular Effect",
+        "icon": "warning",
+        "title": "One pathway silenced, everything else quiet",
+        "body": "The product of the reaction falls and the downstream signal that depends on it is blunted. Every other control the laboratory ran came back clean: the cells are viable, the membrane is not leaking, the DNA is not fragmented, and total protein is unchanged. The lesion is narrow — one step in one pathway.",
+        "readouts": [
+          {
+            "label": "Cell viability",
+            "value": "94% — essentially normal",
+            "state": "normal"
+          },
+          {
+            "label": "LDH release (membrane leak)",
+            "value": "Normal",
+            "state": "normal"
+          },
+          {
+            "label": "Comet assay tail moment",
+            "value": "Normal",
+            "state": "normal"
+          },
+          {
+            "label": "Downstream product",
+            "value": "Sharply reduced",
+            "state": "alert"
+          }
+        ]
+      }
+    ],
+    "datasets": [
+      {
+        "id": "c1-dose",
+        "title": "Enzyme activity and substrate level against exposure",
+        "caption": "Both measures are expressed as a percentage of the unexposed control, so they share one scale. Activity falls; substrate rises. Simulated data.",
+        "type": "line",
+        "xKey": "condition",
+        "xLabel": "Exposure level",
+        "yLabel": "% of unexposed control",
+        "yMax": 260,
+        "rows": [
+          {
+            "condition": "Control",
+            "Enzyme activity": 100,
+            "Substrate level": 100
+          },
+          {
+            "condition": "Low",
+            "Enzyme activity": 82,
+            "Substrate level": 118
+          },
+          {
+            "condition": "Medium",
+            "Enzyme activity": 55,
+            "Substrate level": 165
+          },
+          {
+            "condition": "High",
+            "Enzyme activity": 28,
+            "Substrate level": 240
+          }
+        ],
+        "series": [
+          {
+            "key": "Enzyme activity",
+            "channel": "protein"
+          },
+          {
+            "key": "Substrate level",
+            "channel": "carbohydrate"
+          }
+        ]
+      }
+    ],
+    "questions": {
+      "biomolecule": {
+        "prompt": "Which biomolecule is primarily affected?",
+        "options": [
+          "dna-rna",
+          "protein",
+          "lipid",
+          "carbohydrate"
+        ]
+      },
+      "mechanism": {
+        "prompt": "What is the most likely mechanism?",
+        "options": [
+          "oxidative-damage",
+          "enzyme-inhibition",
+          "substrate-depletion",
+          "protein-denaturation"
+        ]
+      }
+    },
+    "solution": {
+      "biomolecule": "protein",
+      "mechanism": "enzyme-inhibition",
+      "verdict": "A toxicant is occupying the active site of an intact enzyme.",
+      "explanation": "Evidence C describes a protein and nothing else: twenty monomer types, peptide bonds, a folded pocket, activity quoted per milligram. Proteins are the only biomolecule class built for catalysis, so a catalytic failure points here first.\n\nWhat kind of failure is it? Evidence A rules out two of the three obvious answers. The enzyme has not been degraded — its abundance is unchanged — and it has not been denatured — its melting temperature is unchanged, so the fold is still there. What has changed is that the catalytic pocket is occupied and the catalytic serine carries a covalent modification.\n\nThe kinetics in Evidence B settle it. Vmax falls to 31% while Km is unchanged at about 47 µM. Km is a measure of how tightly the enzyme holds its substrate; if a toxicant were competing for the substrate-binding site, Km would appear to rise and piling on extra substrate would out-compete it. Neither happens. A drop in Vmax at constant Km is the classic signature of non-competitive or irreversible inhibition: the enzyme molecules that are hit are simply out of the game, and no amount of substrate brings them back. That is also why substrate accumulates to 240% instead of being depleted — which is the single cleanest way to tell inhibition apart from substrate starvation.\n\nThis class of lesion is common in real toxicology: organophosphates modify the catalytic serine of acetylcholinesterase, cyanide blocks cytochrome c oxidase, and heavy-metal ions inactivate enzymes that depend on a free cysteine thiol.",
+      "pathway": [
+        "Toxicant enters the cell",
+        "Binds at / adjacent to the catalytic site",
+        "Catalysis blocked — Vmax falls, Km unchanged",
+        "Substrate accumulates, product falls",
+        "Downstream signalling pathway silenced",
+        "Altered cellular function"
+      ],
+      "keyTerms": [
+        {
+          "term": "Active site",
+          "def": "The pocket in a folded enzyme where the substrate binds and the reaction happens."
+        },
+        {
+          "term": "Vmax",
+          "def": "The maximum rate an enzyme preparation can reach when substrate is saturating. It scales with the number of working enzyme molecules."
+        },
+        {
+          "term": "Km",
+          "def": "The substrate concentration that gives half of Vmax — an inverse measure of how tightly the enzyme binds its substrate."
+        },
+        {
+          "term": "Non-competitive inhibition",
+          "def": "Inhibition that does not compete with the substrate for its binding site, so extra substrate cannot reverse it: Vmax falls, Km is unchanged."
+        }
+      ],
+      "hints": {
+        "biomolecule": "Read Evidence C again. Twenty different monomers, peptide bonds, a folded pocket that fits one molecule, activity measured per milligram. Which biomolecule class is the one built for catalysis?",
+        "mechanism": "The enzyme is still present (unchanged abundance) and still folded (unchanged Tm). So the lesion is not degradation and not unfolding. And the substrate is piling up, not running out. What is left that stops a present, correctly folded enzyme from working?"
+      },
+      "wrongBiomolecule": {
+        "dna-rna": "Look at Evidence D — the comet assay is normal, so the DNA is not fragmented, and total protein is unchanged, so transcription and translation are still running. The lesion is at the level of one working molecule, not the instructions.",
+        "lipid": "Evidence D shows normal LDH release, which means the membrane is not leaking. A lipid lesion almost always shows up first as a loss of barrier function.",
+        "carbohydrate": "The substrate is accumulating, not being depleted — so fuel supply is not the problem. Ask instead which biomolecule was supposed to consume that substrate."
+      },
+      "wrongMechanism": {
+        "oxidative-damage": "Nothing in the evidence reports reactive oxygen species, a falling glutathione ratio, or any oxidation marker — and the DNA and membrane are both intact. Oxidative damage is rarely this surgical.",
+        "substrate-depletion": "Check the direction of the substrate curve in Evidence B. It rises to 240% of control. Depletion would send it down, not up.",
+        "protein-denaturation": "You have the right biomolecule. But Evidence A reports an unchanged melting temperature, which means the fold is intact. Denaturation would lower Tm and expose the hydrophobic core. Something is blocking this enzyme, not unfolding it."
+      }
+    }
+  },
+  {
+    "id": "case-02",
+    "number": "02",
+    "title": "The Oxidative Trail",
+    "codename": "BTD‑2041‑B",
+    "difficulty": "Core",
+    "channel": "dna-rna",
+    "specimen": "Dividing epithelial-like cell line (simulated culture)",
+    "exposure": "Redox-active metal ion, four dose levels",
+    "duration": "6 h",
+    "brief": "A dividing cell population has stopped at the G1/S checkpoint. Nothing has been added that could bind a specific target — the stressor is a metal ion that cycles between two oxidation states. The damage is scattered rather than surgical, and it has left a chemical signature in the nucleus.",
+    "evidence": [
+      {
+        "id": "A",
+        "kind": "Molecular Observation",
+        "icon": "microscope",
+        "title": "A chemical fingerprint on one particular base",
+        "body": "Three independent nuclear readouts move together. The comet assay — which pulls fragmented nucleic acid out of a lysed nucleus in an electric field — shows a long tail where the control shows almost none. Phosphorylated histone H2AX (γH2AX) foci, each marking one double-strand break, rise from under one per nucleus to nineteen. And a specific oxidised base, 8-oxo-2′-deoxyguanosine, rises more than tenfold.",
+        "readouts": [
+          {
+            "label": "Comet tail moment",
+            "value": "1.2 → 14.6 arbitrary units",
+            "state": "alert"
+          },
+          {
+            "label": "γH2AX foci per nucleus",
+            "value": "0.8 → 19",
+            "state": "alert"
+          },
+          {
+            "label": "8-oxo-dG per 10⁶ guanines",
+            "value": "3 → 41",
+            "state": "alert"
+          },
+          {
+            "label": "Base affected",
+            "value": "Guanine, selectively",
+            "state": "info"
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "kind": "Experimental Data",
+        "icon": "chart",
+        "title": "The defence is being consumed",
+        "body": "Reactive oxygen species rise steeply with dose, and the oxidised base rises with them. The third curve is the one that defines the situation: the ratio of reduced to oxidised glutathione — the cell’s main redox buffer — collapses. Oxidative stress is not simply “lots of ROS”; it is ROS production exceeding the capacity to mop it up, and that is what a falling GSH:GSSG ratio reports.",
+        "datasetId": "c2-dose",
+        "readouts": [
+          {
+            "label": "ROS (DCF fluorescence)",
+            "value": "520% of control at high dose",
+            "state": "alert"
+          },
+          {
+            "label": "GSH:GSSG ratio",
+            "value": "19% of control — buffer exhausted",
+            "state": "alert"
+          },
+          {
+            "label": "Catalase activity",
+            "value": "Upregulated 2.1×",
+            "state": "info"
+          }
+        ]
+      },
+      {
+        "id": "C",
+        "kind": "Biomolecule Clue",
+        "icon": "dna",
+        "title": "What the damaged molecule is",
+        "body": "The damaged molecule is a very long, unbranched polymer built from four kinds of unit, each unit being a sugar, a phosphate and a nitrogen-containing base. Two such strands run antiparallel and are held together by hydrogen bonds between complementary bases. It is copied before every cell division. Of its four bases, one has a distinctly lower oxidation potential than the rest — and that is the one carrying the damage.",
+        "readouts": [
+          {
+            "label": "Unit variety",
+            "value": "4 nucleotides",
+            "state": "info"
+          },
+          {
+            "label": "Backbone",
+            "value": "Sugar–phosphate, phosphodiester bonds",
+            "state": "info"
+          },
+          {
+            "label": "Strand arrangement",
+            "value": "Two antiparallel strands, base-paired",
+            "state": "info"
+          },
+          {
+            "label": "Most oxidisable base",
+            "value": "Guanine",
+            "state": "info"
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "kind": "Cellular Effect",
+        "icon": "warning",
+        "title": "The cell stops to make repairs",
+        "body": "The cell cycle arrests at the G1/S boundary. p53 protein is stabilised, which is the standard response to detected genomic damage — stop, repair, and if repair fails, die. The base-excision repair glycosylase OGG1, whose specific job is to cut 8-oxo-dG out of the strand, is upregulated fourfold. Membranes are intact and total protein is unchanged, so the damage has not spread to those compartments.",
+        "readouts": [
+          {
+            "label": "Cell cycle",
+            "value": "Arrested at G1/S",
+            "state": "alert"
+          },
+          {
+            "label": "p53",
+            "value": "Stabilised",
+            "state": "alert"
+          },
+          {
+            "label": "OGG1 (repair glycosylase)",
+            "value": "Upregulated 4×",
+            "state": "info"
+          },
+          {
+            "label": "LDH release",
+            "value": "Normal",
+            "state": "normal"
+          }
+        ]
+      }
+    ],
+    "datasets": [
+      {
+        "id": "c2-dose",
+        "title": "Oxidant load, base damage and antioxidant reserve against exposure",
+        "caption": "All three measures are normalised to the unexposed control so they share one scale. Simulated data.",
+        "type": "line",
+        "xKey": "condition",
+        "xLabel": "Exposure level",
+        "yLabel": "% of unexposed control",
+        "yMax": 800,
+        "rows": [
+          {
+            "condition": "Control",
+            "ROS level": 100,
+            "8-oxo-dG": 100,
+            "GSH:GSSG ratio": 100
+          },
+          {
+            "condition": "Low",
+            "ROS level": 168,
+            "8-oxo-dG": 190,
+            "GSH:GSSG ratio": 74
+          },
+          {
+            "condition": "Medium",
+            "ROS level": 310,
+            "8-oxo-dG": 420,
+            "GSH:GSSG ratio": 41
+          },
+          {
+            "condition": "High",
+            "ROS level": 520,
+            "8-oxo-dG": 760,
+            "GSH:GSSG ratio": 19
+          }
+        ],
+        "series": [
+          {
+            "key": "ROS level",
+            "channel": "lipid"
+          },
+          {
+            "key": "8-oxo-dG",
+            "channel": "dna-rna"
+          },
+          {
+            "key": "GSH:GSSG ratio",
+            "channel": "protein"
+          }
+        ]
+      }
+    ],
+    "questions": {
+      "biomolecule": {
+        "prompt": "Which biomolecule is primarily affected?",
+        "options": [
+          "dna-rna",
+          "protein",
+          "lipid",
+          "carbohydrate"
+        ]
+      },
+      "mechanism": {
+        "prompt": "What is the most likely mechanism?",
+        "options": [
+          "enzyme-inhibition",
+          "oxidative-damage",
+          "protein-denaturation",
+          "lipid-peroxidation"
+        ]
+      }
+    },
+    "solution": {
+      "biomolecule": "dna-rna",
+      "mechanism": "oxidative-damage",
+      "verdict": "Radical chemistry is oxidising guanine and breaking the nucleic acid backbone.",
+      "explanation": "Evidence C is a description of DNA: four nucleotide units, a sugar–phosphate backbone, two antiparallel base-paired strands, copied before division. Evidence A finds the damage there and nowhere else, and Evidence D confirms it — p53 stabilisation and a G1/S arrest are the responses to detected genomic damage, not to a membrane or metabolic problem.\n\nThe mechanism is written into the chemistry. A metal ion that cycles between two oxidation states drives Fenton-type chemistry, converting hydrogen peroxide into the hydroxyl radical (•OH). Hydroxyl radical is the most reactive species in this story: it has no target selectivity and reacts with whatever it meets at close to diffusion-limited rates. Generated near chromatin, what it meets is DNA.\n\nTwo things then happen. Radical attack on a base is selective in one respect — guanine has the lowest oxidation potential of the four, so it is hit preferentially, giving 8-oxo-dG. That lesion matters because 8-oxo-dG can pair with adenine instead of cytosine, so if OGG1 does not excise it before the next replication, it becomes a permanent G:C → T:A transversion. Separately, radical attack on the deoxyribose sugar cuts the backbone outright; those cuts are what the comet tail and the γH2AX foci are reporting.\n\nThe falling GSH:GSSG ratio in Evidence B is what makes this oxidative *stress* rather than ordinary oxidative *signalling*. Cells always produce some ROS and always neutralise it. Stress begins when production outruns the buffer — and here the buffer has been drawn down to 19% of its normal state.",
+      "pathway": [
+        "Redox-active metal ion enters the cell",
+        "Fenton-type chemistry converts H₂O₂ to hydroxyl radical (•OH)",
+        "Glutathione buffer consumed — oxidative stress begins",
+        "Guanine oxidised to 8-oxo-dG; sugar–phosphate backbone cut",
+        "Damage detected — γH2AX, p53, OGG1 repair response",
+        "Cell cycle arrest at G1/S; mutation risk if repair fails"
+      ],
+      "keyTerms": [
+        {
+          "term": "Reactive oxygen species (ROS)",
+          "def": "Oxygen-derived reactive molecules — superoxide, hydrogen peroxide, hydroxyl radical — produced normally in metabolism and in excess under stress."
+        },
+        {
+          "term": "Fenton reaction",
+          "def": "A redox-active metal ion reduces hydrogen peroxide to hydroxyl radical, then is re-reduced and does it again — so a small amount of metal produces a lot of radical."
+        },
+        {
+          "term": "8-oxo-dG",
+          "def": "Oxidised guanine. The standard marker of oxidative DNA damage, and mutagenic because it mispairs with adenine."
+        },
+        {
+          "term": "GSH:GSSG ratio",
+          "def": "Reduced over oxidised glutathione. A high ratio means reserve in hand; a falling ratio means the antioxidant defence is being consumed."
+        }
+      ],
+      "hints": {
+        "biomolecule": "Evidence C names four nucleotide units, a sugar–phosphate backbone and two antiparallel strands. And in Evidence D the cell has stopped at a cell-cycle checkpoint and stabilised p53 — which particular molecule is p53 hired to protect?",
+        "mechanism": "Look at the three curves in Evidence B rather than at any single marker. ROS up, damage up, antioxidant reserve down. That combination has one name."
+      },
+      "wrongBiomolecule": {
+        "protein": "Total protein is unchanged and no enzyme activity is reported as falling. The upregulated proteins here — OGG1, p53, catalase — are the cell’s response, not the casualty.",
+        "lipid": "Membranes would announce themselves through LDH release and MDA, and Evidence D shows LDH is normal. Reasonable guess though — lipids are the other classic oxidation target, and in a longer exposure they would join in.",
+        "carbohydrate": "Nothing in the evidence touches fuel handling: no glucose, lactate, ATP or oxygen-consumption readouts have moved."
+      },
+      "wrongMechanism": {
+        "enzyme-inhibition": "Inhibition is specific — one enzyme, one site, activity down with abundance unchanged. Here the damage is scattered across the genome and the marker is a chemically modified base, which no inhibitor produces.",
+        "protein-denaturation": "Denaturation would show up as falling melting temperature, altered secondary structure and aggregation. None of those readouts appear here; the modified molecule carries bases, not amino acids.",
+        "lipid-peroxidation": "Right family of chemistry — radicals — but the wrong target. Lipid peroxidation is reported by MDA, 4-HNE and LDH release, and Evidence D shows LDH is normal. The marker that did move, 8-oxo-dG, is a nucleic acid marker."
+      }
+    }
+  },
+  {
+    "id": "case-03",
+    "number": "03",
+    "title": "The Broken Barrier",
+    "codename": "BTD‑2041‑C",
+    "difficulty": "Core",
+    "channel": "lipid",
+    "specimen": "Neuron-like cell line, iron-supplemented medium (simulated culture)",
+    "exposure": "Oxidative stressor, four dose levels",
+    "duration": "12 h",
+    "brief": "Cells are swelling and their contents are leaking into the medium. The strangest detail in the report: the technician washed the stressor out after four hours, and the damage carried on getting worse anyway. Whatever started this is no longer needed to continue it.",
+    "evidence": [
+      {
+        "id": "A",
+        "kind": "Molecular Observation",
+        "icon": "microscope",
+        "title": "Something is eating the double bonds",
+        "body": "Fatty-acid analysis shows polyunsaturated tails being selectively consumed: arachidonic acid falls to 41% of control while saturated tails are almost untouched. Membrane fluorescence anisotropy rises, meaning the bilayer has lost its normal ordered packing. Two reactive aldehydes, malondialdehyde and 4-hydroxynonenal, appear in quantity — neither is present in control.",
+        "readouts": [
+          {
+            "label": "Arachidonic acid (polyunsaturated)",
+            "value": "41% of control",
+            "state": "alert"
+          },
+          {
+            "label": "Stearic acid (saturated)",
+            "value": "96% of control",
+            "state": "normal"
+          },
+          {
+            "label": "MDA and 4-HNE adducts",
+            "value": "Present — absent in control",
+            "state": "alert"
+          },
+          {
+            "label": "α-Tocopherol (vitamin E)",
+            "value": "23% of control",
+            "state": "alert"
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "kind": "Experimental Data",
+        "icon": "chart",
+        "title": "The barrier fails as the aldehydes rise",
+        "body": "Malondialdehyde climbs steeply with dose. Lactate dehydrogenase — a large cytosolic enzyme that can only appear in the medium if the membrane has been breached — rises with it, and measured membrane integrity falls away. Three readouts, one story, moving together.",
+        "datasetId": "c3-dose",
+        "readouts": [
+          {
+            "label": "MDA",
+            "value": "910% of control at high dose",
+            "state": "alert"
+          },
+          {
+            "label": "LDH release",
+            "value": "620% of control",
+            "state": "alert"
+          },
+          {
+            "label": "Membrane integrity",
+            "value": "27% of control",
+            "state": "alert"
+          },
+          {
+            "label": "Damage after washout",
+            "value": "Continues to progress",
+            "state": "alert"
+          }
+        ]
+      },
+      {
+        "id": "C",
+        "kind": "Biomolecule Clue",
+        "icon": "dna",
+        "title": "What the damaged molecule is",
+        "body": "The molecules under attack have a water-loving head and two water-hating tails, and in water they arrange themselves spontaneously, tail-to-tail, into a two-layer sheet. Some of those tails carry several double bonds. Between any two neighbouring double bonds sits a single carbon whose hydrogen is held more weakly than any other hydrogen in the membrane — and that is where the damage starts.",
+        "readouts": [
+          {
+            "label": "Amphipathic",
+            "value": "Polar head, hydrophobic tails",
+            "state": "info"
+          },
+          {
+            "label": "Assembly",
+            "value": "Spontaneous bilayer",
+            "state": "info"
+          },
+          {
+            "label": "Vulnerable position",
+            "value": "Bis-allylic CH₂ between two double bonds",
+            "state": "info"
+          },
+          {
+            "label": "Function",
+            "value": "Barrier and compartment boundary",
+            "state": "info"
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "kind": "Cellular Effect",
+        "icon": "warning",
+        "title": "Gradients collapse, and the reaction feeds itself",
+        "body": "Cells swell as water follows ions inward. Ion gradients that the cell spends most of its ATP maintaining collapse, because the barrier those gradients sit across has become permeable. Vitamin E — the membrane’s own chain-terminating antioxidant — has been drawn down to 23%. Early comet assays are normal, so the nucleus is not the primary site. And the damage continued after the stressor was washed out, which is the detail that names the mechanism.",
+        "readouts": [
+          {
+            "label": "Cell volume",
+            "value": "Increased — swelling",
+            "state": "alert"
+          },
+          {
+            "label": "Ion gradients",
+            "value": "Collapsing",
+            "state": "alert"
+          },
+          {
+            "label": "Comet tail moment (early)",
+            "value": "Normal",
+            "state": "normal"
+          },
+          {
+            "label": "Self-propagation",
+            "value": "Confirmed — progresses after washout",
+            "state": "alert"
+          }
+        ]
+      }
+    ],
+    "datasets": [
+      {
+        "id": "c3-dose",
+        "title": "Peroxidation product, enzyme leakage and barrier integrity against exposure",
+        "caption": "All three normalised to the unexposed control. MDA is the peroxidation product; LDH release reports leakage; integrity is what is left of the barrier. Simulated data.",
+        "type": "line",
+        "xKey": "condition",
+        "xLabel": "Exposure level",
+        "yLabel": "% of unexposed control",
+        "yMax": 950,
+        "rows": [
+          {
+            "condition": "Control",
+            "MDA": 100,
+            "LDH release": 100,
+            "Membrane integrity": 100
+          },
+          {
+            "condition": "Low",
+            "MDA": 215,
+            "LDH release": 160,
+            "Membrane integrity": 88
+          },
+          {
+            "condition": "Medium",
+            "MDA": 480,
+            "LDH release": 340,
+            "Membrane integrity": 61
+          },
+          {
+            "condition": "High",
+            "MDA": 910,
+            "LDH release": 620,
+            "Membrane integrity": 27
+          }
+        ],
+        "series": [
+          {
+            "key": "MDA",
+            "channel": "lipid"
+          },
+          {
+            "key": "LDH release",
+            "channel": "carbohydrate"
+          },
+          {
+            "key": "Membrane integrity",
+            "channel": "dna-rna"
+          }
+        ]
+      }
+    ],
+    "questions": {
+      "biomolecule": {
+        "prompt": "Which biomolecule is primarily affected?",
+        "options": [
+          "dna-rna",
+          "protein",
+          "lipid",
+          "carbohydrate"
+        ]
+      },
+      "mechanism": {
+        "prompt": "What is the most likely mechanism?",
+        "options": [
+          "lipid-peroxidation",
+          "enzyme-inhibition",
+          "oxidative-damage",
+          "membrane-transport-block"
+        ]
+      }
+    },
+    "solution": {
+      "biomolecule": "lipid",
+      "mechanism": "lipid-peroxidation",
+      "verdict": "A self-propagating radical chain reaction is consuming the membrane.",
+      "explanation": "Evidence C describes a phospholipid: a polar head, two hydrophobic tails, spontaneous assembly into a bilayer. Evidence A shows those molecules being consumed selectively — polyunsaturated tails down to 41%, saturated tails untouched at 96%. That selectivity is the whole clue, and it comes from one structural feature.\n\nIn a polyunsaturated tail, the carbon sitting between two double bonds is bis-allylic, and its C–H bond is the weakest in the membrane. A radical abstracts that hydrogen and leaves behind a carbon-centred lipid radical (L•). Oxygen adds to it almost instantly, giving a peroxyl radical (LOO•) — and a peroxyl radical is itself strong enough to abstract a bis-allylic hydrogen from the *next* polyunsaturated tail. That regenerates a lipid radical and the cycle repeats.\n\nThat is why the damage continued after washout, and it is the single most important fact in this case. Lipid peroxidation is a chain reaction: initiation needs the stressor, propagation does not. One initiating radical can destroy hundreds of lipid molecules, and the reaction stops only when two radicals meet and annihilate, or when a chain-breaking antioxidant intervenes. Vitamin E is that antioxidant, which is why it has been drawn down to 23% — it has been spending itself terminating chains.\n\nThe peroxidised chains then fragment into malondialdehyde and 4-hydroxynonenal. These are the standard laboratory markers of lipid peroxidation, but they are not merely markers: both are electrophiles that form covalent adducts on proteins and DNA, so the damage exports itself out of the membrane. Meanwhile, as tails are consumed the bilayer loses its packing, permeability rises, ions and water move down their gradients, the cell swells, and LDH — far too large to cross an intact membrane — appears in the medium. When iron-dependent peroxidation of this kind outruns the GPX4 defence, the result is ferroptosis, a regulated cell death driven by the membrane damage itself.",
+      "pathway": [
+        "Initiating radical formed (iron-dependent)",
+        "Bis-allylic hydrogen abstracted from a polyunsaturated tail → L•",
+        "O₂ adds → peroxyl radical LOO• → abstracts from the next tail",
+        "Chain propagates; vitamin E consumed terminating it",
+        "Chains fragment to MDA and 4-HNE; polyunsaturated tails depleted",
+        "Bilayer packing lost → permeability up → ion gradients collapse, LDH leaks"
+      ],
+      "keyTerms": [
+        {
+          "term": "Bis-allylic hydrogen",
+          "def": "The hydrogen on a carbon flanked by two double bonds. The weakest C–H bond in a membrane, and the initiation point of lipid peroxidation."
+        },
+        {
+          "term": "Chain propagation",
+          "def": "Each peroxyl radical creates the next lipid radical, so one initiation event damages many molecules and the reaction outlives the toxicant."
+        },
+        {
+          "term": "MDA / 4-HNE",
+          "def": "Malondialdehyde and 4-hydroxynonenal — reactive aldehyde end-products of peroxidised lipids, used as markers and themselves toxic."
+        },
+        {
+          "term": "Ferroptosis",
+          "def": "Regulated cell death driven by iron-dependent lipid peroxidation overwhelming the GPX4 defence."
+        }
+      ],
+      "hints": {
+        "biomolecule": "Evidence C: polar head, two hydrophobic tails, assembles into a bilayer on its own. And the failure in Evidence D is a failure of the barrier — ion gradients collapsing, a large cytosolic enzyme escaping. Which biomolecule class *is* the barrier?",
+        "mechanism": "Concentrate on one anomaly: the damage kept progressing after the stressor was washed out. What kind of reaction, once started, no longer needs its initiator?"
+      },
+      "wrongBiomolecule": {
+        "dna-rna": "Early comet assays are normal in Evidence D. The nucleus is a secondary casualty here at most — the aldehydes can reach it, but the primary loss is happening at the barrier.",
+        "protein": "LDH is in this story as an escapee, not a victim: it is being measured in the medium precisely because it leaked out through a broken barrier. Its activity was never the readout.",
+        "carbohydrate": "No fuel-handling readout has moved. Look instead at what is being chemically consumed in Evidence A — polyunsaturated tails, and only those."
+      },
+      "wrongMechanism": {
+        "enzyme-inhibition": "Inhibition leaves a protein present but idle and does not consume polyunsaturated fatty acids, produce MDA, or continue after washout.",
+        "oxidative-damage": "You are very close — this *is* oxidative chemistry. But the question asks which mechanism, and lipid peroxidation is its own named mechanism precisely because of the chain reaction: it self-propagates and produces MDA and 4-HNE, which generic oxidative damage does not.",
+        "membrane-transport-block": "Right compartment, wrong lesion. A blocked transporter leaves the membrane intact; here the membrane itself is being chemically consumed, which is why LDH gets out at all."
+      }
+    }
+  },
+  {
+    "id": "case-04",
+    "number": "04",
+    "title": "The Misfolded Protein",
+    "codename": "BTD‑2041‑D",
+    "difficulty": "Advanced",
+    "channel": "protein",
+    "specimen": "Kidney-like cell line (simulated culture)",
+    "exposure": "Soft metal ion (thiol-binding class), four dose levels",
+    "duration": "18 h",
+    "brief": "This case looks like Case 01 at first glance — an enzyme losing activity while its abundance stays constant. It is not the same lesion, and one measurement separates them. Find it before you commit to an answer.",
+    "evidence": [
+      {
+        "id": "A",
+        "kind": "Molecular Observation",
+        "icon": "microscope",
+        "title": "The shape has changed",
+        "body": "Circular dichroism — which reports on secondary structure — shows α-helix content collapsing from 42% to 18% while β-sheet content rises from 21% to 39%, a shift typical of proteins on their way to aggregation. Intrinsic tryptophan fluorescence is red-shifted, meaning tryptophan residues that were buried in the hydrophobic core are now exposed to water. Free thiol content falls to 34%: cysteine –SH groups are being occupied.",
+        "readouts": [
+          {
+            "label": "α-Helix content",
+            "value": "42% → 18%",
+            "state": "alert"
+          },
+          {
+            "label": "β-Sheet content",
+            "value": "21% → 39%",
+            "state": "alert"
+          },
+          {
+            "label": "Trp fluorescence",
+            "value": "Red-shifted — core exposed",
+            "state": "alert"
+          },
+          {
+            "label": "Free thiol (–SH)",
+            "value": "34% of control",
+            "state": "alert"
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "kind": "Experimental Data",
+        "icon": "chart",
+        "title": "Melting earlier, clumping harder, still all there",
+        "body": "Two charts, because two different units are involved and forcing them onto one axis would let the author decide where the lines cross. The first is thermal stability in degrees Celsius: the temperature at which the protein unfolds drops by more than fifteen degrees. The second holds the three measures that share a percentage scale — activity falling, turbidity (a direct optical measure of aggregation) rising, and total protein flat.",
+        "datasetId": "c4-tm",
+        "secondaryDatasetId": "c4-pct",
+        "readouts": [
+          {
+            "label": "Melting temperature (Tm)",
+            "value": "62.4 → 46.9 °C",
+            "state": "alert"
+          },
+          {
+            "label": "Turbidity at 340 nm",
+            "value": "880% of control",
+            "state": "alert"
+          },
+          {
+            "label": "Specific activity",
+            "value": "9% of control",
+            "state": "alert"
+          },
+          {
+            "label": "Total protein",
+            "value": "97% — unchanged",
+            "state": "normal"
+          }
+        ]
+      },
+      {
+        "id": "C",
+        "kind": "Biomolecule Clue",
+        "icon": "dna",
+        "title": "What holds this molecule in shape",
+        "body": "This molecule’s function depends on a precise three-dimensional fold, and that fold is held almost entirely by weak interactions — hydrogen bonds, ionic bonds, hydrophobic packing — plus disulfide bridges between sulfur-containing residues. The chain that carries them is held together by strong covalent bonds and is not affected. So the shape can be destroyed without the chain being broken at all.",
+        "readouts": [
+          {
+            "label": "Chain integrity",
+            "value": "Covalent backbone intact",
+            "state": "normal"
+          },
+          {
+            "label": "Fold stabilised by",
+            "value": "H-bonds, ionic bonds, hydrophobic core, –S–S–",
+            "state": "info"
+          },
+          {
+            "label": "Sensitive to",
+            "value": "Heat, pH extremes, solvents, soft metals",
+            "state": "info"
+          },
+          {
+            "label": "Levels of structure",
+            "value": "Primary → secondary → tertiary → quaternary",
+            "state": "info"
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "kind": "Cellular Effect",
+        "icon": "warning",
+        "title": "The cell calls in the folding crew",
+        "body": "HSP70 and HSP90 — chaperones that hold partly unfolded chains and give them another attempt at folding — are strongly upregulated. Ubiquitinated protein accumulates, meaning damaged chains are being tagged for destruction faster than the proteasome can clear them. Insoluble aggregates appear in the cytosol and the unfolded protein response is switched on. DNA is intact, membranes are intact.",
+        "readouts": [
+          {
+            "label": "HSP70 / HSP90",
+            "value": "Strongly upregulated",
+            "state": "alert"
+          },
+          {
+            "label": "Ubiquitinated protein",
+            "value": "Accumulating",
+            "state": "alert"
+          },
+          {
+            "label": "Insoluble aggregates",
+            "value": "Present in cytosol",
+            "state": "alert"
+          },
+          {
+            "label": "Comet assay / LDH",
+            "value": "Both normal",
+            "state": "normal"
+          }
+        ]
+      }
+    ],
+    "datasets": [
+      {
+        "id": "c4-tm",
+        "title": "Thermal stability against exposure",
+        "caption": "Melting temperature is the temperature at which half the protein population has unfolded. It is in °C, so it gets its own chart. Simulated data.",
+        "type": "bar",
+        "xKey": "condition",
+        "xLabel": "Exposure level",
+        "yLabel": "Melting temperature (°C)",
+        "yMin": 40,
+        "yMax": 66,
+        "rows": [
+          {
+            "condition": "Control",
+            "Tm": 62.4
+          },
+          {
+            "condition": "Low",
+            "Tm": 58.1
+          },
+          {
+            "condition": "Medium",
+            "Tm": 52.7
+          },
+          {
+            "condition": "High",
+            "Tm": 46.9
+          }
+        ],
+        "series": [
+          {
+            "key": "Tm",
+            "channel": "protein"
+          }
+        ]
+      },
+      {
+        "id": "c4-pct",
+        "title": "Activity, aggregation and abundance against exposure",
+        "caption": "These three share a percentage scale, so they belong on one chart. Note the flat line: total protein does not move. Simulated data.",
+        "type": "line",
+        "xKey": "condition",
+        "xLabel": "Exposure level",
+        "yLabel": "% of unexposed control",
+        "yMax": 920,
+        "rows": [
+          {
+            "condition": "Control",
+            "Specific activity": 100,
+            "Turbidity (aggregation)": 100,
+            "Total protein": 100
+          },
+          {
+            "condition": "Low",
+            "Specific activity": 61,
+            "Turbidity (aggregation)": 190,
+            "Total protein": 98
+          },
+          {
+            "condition": "Medium",
+            "Specific activity": 30,
+            "Turbidity (aggregation)": 430,
+            "Total protein": 101
+          },
+          {
+            "condition": "High",
+            "Specific activity": 9,
+            "Turbidity (aggregation)": 880,
+            "Total protein": 97
+          }
+        ],
+        "series": [
+          {
+            "key": "Specific activity",
+            "channel": "protein"
+          },
+          {
+            "key": "Turbidity (aggregation)",
+            "channel": "lipid"
+          },
+          {
+            "key": "Total protein",
+            "channel": "dna-rna"
+          }
+        ]
+      }
+    ],
+    "questions": {
+      "biomolecule": {
+        "prompt": "Which biomolecule is primarily affected?",
+        "options": [
+          "dna-rna",
+          "protein",
+          "lipid",
+          "carbohydrate"
+        ]
+      },
+      "mechanism": {
+        "prompt": "What is the most likely mechanism?",
+        "options": [
+          "enzyme-inhibition",
+          "protein-denaturation",
+          "lipid-peroxidation",
+          "oxidative-damage"
+        ]
+      }
+    },
+    "solution": {
+      "biomolecule": "protein",
+      "mechanism": "protein-denaturation",
+      "verdict": "The fold has been destroyed; the chain is untouched.",
+      "explanation": "The biomolecule is straightforward — Evidence C describes levels of structure, disulfide bridges and a hydrophobic core, and Evidence D shows the chaperone and ubiquitin machinery responding, which is a protein-specific alarm.\n\nThe mechanism is where this case earns its difficulty rating, because Case 01 also showed activity falling at constant abundance. The measurement that separates them is melting temperature. In Case 01, Tm was unchanged at 62.1 °C: the enzyme was still correctly folded, and only its active site was occupied. Here Tm falls from 62.4 to 46.9 °C. A protein that melts fifteen degrees earlier is a protein whose stabilising interactions have been disturbed — it is not being blocked, it is coming apart.\n\nThe rest of Evidence A tells you how. The metal ion in question is a soft cation, and soft cations bind sulfur with very high affinity. Free thiol content falls to 34% because cysteine –SH groups have been occupied, and those cysteines were part of what held the fold. With that network disturbed, α-helices unwind (42% → 18%), β-sheet rises as chains begin to associate, and the buried tryptophans find themselves in water — which is exactly what a red-shifted fluorescence emission reports.\n\nOnce the hydrophobic core is exposed, aggregation follows almost automatically. Hydrophobic patches that should be buried stick to each other, soluble protein turns into insoluble clumps, and the solution scatters light — turbidity at 340 nm rises nearly ninefold. The cell responds exactly as it should: chaperones try to rescue the partly unfolded chains, ubiquitin tags the hopeless ones, and the unfolded protein response slows new translation to let the folding machinery catch up.\n\nThe defining feature of denaturation is what does *not* happen. Primary structure is covalent and survives. Total protein sits at 97% of control — every chain is still there, still the right length. What has been lost is the arrangement, and for a protein the arrangement is the function.",
+      "pathway": [
+        "Soft metal ion enters the cell",
+        "Binds cysteine thiols — free –SH falls to 34%",
+        "Stabilising network disturbed — helices unwind, Tm drops 15 °C",
+        "Hydrophobic core exposed to water",
+        "Exposed patches associate — aggregation, turbidity up",
+        "Chaperone and ubiquitin response; function lost, chain intact"
+      ],
+      "keyTerms": [
+        {
+          "term": "Denaturation",
+          "def": "Loss of secondary, tertiary and quaternary structure with the peptide backbone intact. Unfolding, not digestion."
+        },
+        {
+          "term": "Melting temperature (Tm)",
+          "def": "The temperature at which half a protein population has unfolded. It measures how well the fold is held together, which is why it distinguishes denaturation from inhibition."
+        },
+        {
+          "term": "Circular dichroism",
+          "def": "A spectroscopic method that reports how much α-helix and β-sheet a protein sample contains."
+        },
+        {
+          "term": "Unfolded protein response",
+          "def": "The coordinated cellular reaction to accumulating misfolded protein: more chaperones, more degradation, less new translation."
+        }
+      ],
+      "hints": {
+        "biomolecule": "Evidence C talks about a molecule with four levels of structure, disulfide bridges and a hydrophobic core, and Evidence D has the cell deploying chaperones. Both point at the same class.",
+        "mechanism": "Compare this case with Case 01 on one measurement: melting temperature. There it did not move. Here it drops by more than fifteen degrees. What does Tm actually measure, and what does a fall in it mean?"
+      },
+      "wrongBiomolecule": {
+        "dna-rna": "The comet assay in Evidence D is normal, and nothing in the evidence involves bases or a template being read.",
+        "lipid": "LDH release is normal, so the membrane is intact. The structural collapse being measured here is happening to a folded chain, not a bilayer.",
+        "carbohydrate": "No fuel-handling readout has moved, and the aggregating molecules in Evidence A are described in terms of helices and sheets."
+      },
+      "wrongMechanism": {
+        "enzyme-inhibition": "This is the trap the case was built around, and it is a reasonable answer until you check Tm. An inhibitor leaves the fold intact — Case 01 showed Tm unchanged at 62.1 °C. Here Tm falls to 46.9 °C and the protein is aggregating, which no active-site blocker causes.",
+        "lipid-peroxidation": "No MDA, no 4-HNE, no loss of polyunsaturated tails, and LDH release is normal. Nothing here is happening in the membrane.",
+        "oxidative-damage": "Oxidation can certainly damage proteins, but the reported markers would then be protein carbonyls and oxidised methionine. What Evidence A actually shows is thiol occupancy and a structural collapse — a metal binding sulfur, not a radical attack."
+      }
+    }
+  },
+  {
+    "id": "case-05",
+    "number": "05",
+    "title": "The Metabolic Disruption",
+    "codename": "BTD‑2041‑E",
+    "difficulty": "Advanced",
+    "channel": "carbohydrate",
+    "specimen": "Muscle-like cell line (simulated culture)",
+    "exposure": "Mitochondrial stressor, four dose levels",
+    "duration": "8 h",
+    "brief": "These cells are consuming three times as much fuel as usual and have a third of their normal ATP. Nothing appears to be chemically destroyed — DNA intact, membranes intact, protein abundance normal. The accounting is what is wrong.",
+    "evidence": [
+      {
+        "id": "A",
+        "kind": "Molecular Observation",
+        "icon": "microscope",
+        "title": "Burning more, getting less",
+        "body": "Glucose consumption from the medium triples. Lactate output rises more than sixfold and the medium acidifies. Glycogen — the cell’s stored fuel reserve — has been drawn down to 22% of control. Intracellular ATP has nonetheless fallen to 38%. The cell is not short of fuel; it is failing to get value out of the fuel it has.",
+        "readouts": [
+          {
+            "label": "Glucose consumption",
+            "value": "310% of control",
+            "state": "alert"
+          },
+          {
+            "label": "Lactate output",
+            "value": "640% of control",
+            "state": "alert"
+          },
+          {
+            "label": "Glycogen stores",
+            "value": "22% of control",
+            "state": "alert"
+          },
+          {
+            "label": "Intracellular ATP",
+            "value": "38% of control",
+            "state": "alert"
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "kind": "Experimental Data",
+        "icon": "chart",
+        "title": "Oxygen consumption is the curve that matters",
+        "body": "Four measures against dose. Three of them (glucose in, lactate out, ATP) tell you the cell is in trouble. The fourth — oxygen consumption rate, falling to 12% of control — tells you where the trouble is. Cells that cannot use oxygen cannot complete the oxidation of glucose, whatever else is working.",
+        "datasetId": "c5-dose",
+        "readouts": [
+          {
+            "label": "Oxygen consumption rate",
+            "value": "12% of control",
+            "state": "alert"
+          },
+          {
+            "label": "Glycolytic flux",
+            "value": "Increased",
+            "state": "alert"
+          },
+          {
+            "label": "ATP:ADP ratio",
+            "value": "Sharply reduced",
+            "state": "alert"
+          },
+          {
+            "label": "AMPK",
+            "value": "Activated — low-energy alarm",
+            "state": "info"
+          }
+        ]
+      },
+      {
+        "id": "C",
+        "kind": "Biomolecule Clue",
+        "icon": "dna",
+        "title": "What the disrupted pool is made of",
+        "body": "The molecules whose handling has gone wrong are built from sugar units with the general formula (CH₂O)ₙ. The cell stores them as a large branched polymer and uses them as its primary fuel. The first stage of their breakdown is a ten-step pathway in the cytosol that produces a three-carbon acid and a small amount of ATP. Everything after that stage happens in the mitochondrion, and needs oxygen.",
+        "readouts": [
+          {
+            "label": "General formula",
+            "value": "(CH₂O)ₙ",
+            "state": "info"
+          },
+          {
+            "label": "Storage form",
+            "value": "Branched polymer (glycogen)",
+            "state": "info"
+          },
+          {
+            "label": "First stage",
+            "value": "Glycolysis — 10 steps, cytosol, anaerobic",
+            "state": "info"
+          },
+          {
+            "label": "Second stage",
+            "value": "Mitochondrial oxidation — requires O₂",
+            "state": "info"
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "kind": "Cellular Effect",
+        "icon": "warning",
+        "title": "Nothing is broken, and the cell is still starving",
+        "body": "Every damage assay is clean: the comet assay is normal, LDH release is normal, total protein is unchanged, and no aggregates are present. There is no oxidised base, no MDA, no fallen melting temperature. The cell is intact and energetically bankrupt at the same time — which narrows the possibilities considerably.",
+        "readouts": [
+          {
+            "label": "Comet assay",
+            "value": "Normal",
+            "state": "normal"
+          },
+          {
+            "label": "LDH release",
+            "value": "Normal",
+            "state": "normal"
+          },
+          {
+            "label": "Total protein / aggregates",
+            "value": "Normal / none",
+            "state": "normal"
+          },
+          {
+            "label": "MDA, 8-oxo-dG",
+            "value": "Not elevated",
+            "state": "normal"
+          }
+        ]
+      }
+    ],
+    "datasets": [
+      {
+        "id": "c5-dose",
+        "title": "Fuel use, waste output and energy yield against exposure",
+        "caption": "All four normalised to the unexposed control. Watch glucose and lactate rise while oxygen consumption and ATP fall — that divergence is the whole diagnosis. Simulated data.",
+        "type": "line",
+        "xKey": "condition",
+        "xLabel": "Exposure level",
+        "yLabel": "% of unexposed control",
+        "yMax": 680,
+        "rows": [
+          {
+            "condition": "Control",
+            "Glucose uptake": 100,
+            "Lactate output": 100,
+            "Oxygen consumption": 100,
+            "ATP": 100
+          },
+          {
+            "condition": "Low",
+            "Glucose uptake": 152,
+            "Lactate output": 205,
+            "Oxygen consumption": 71,
+            "ATP": 84
+          },
+          {
+            "condition": "Medium",
+            "Glucose uptake": 238,
+            "Lactate output": 410,
+            "Oxygen consumption": 38,
+            "ATP": 59
+          },
+          {
+            "condition": "High",
+            "Glucose uptake": 310,
+            "Lactate output": 640,
+            "Oxygen consumption": 12,
+            "ATP": 38
+          }
+        ],
+        "series": [
+          {
+            "key": "Glucose uptake",
+            "channel": "carbohydrate"
+          },
+          {
+            "key": "Lactate output",
+            "channel": "lipid"
+          },
+          {
+            "key": "Oxygen consumption",
+            "channel": "dna-rna"
+          },
+          {
+            "key": "ATP",
+            "channel": "protein"
+          }
+        ]
+      }
+    ],
+    "questions": {
+      "biomolecule": {
+        "prompt": "Which biomolecule class has its handling primarily disrupted?",
+        "options": [
+          "dna-rna",
+          "protein",
+          "lipid",
+          "carbohydrate"
+        ]
+      },
+      "mechanism": {
+        "prompt": "What is the most likely mechanism?",
+        "options": [
+          "lipid-peroxidation",
+          "oxidative-damage",
+          "metabolic-interference",
+          "protein-denaturation"
+        ]
+      }
+    },
+    "solution": {
+      "biomolecule": "carbohydrate",
+      "mechanism": "metabolic-interference",
+      "verdict": "Glucose can be broken down but no longer fully oxidised, so the cell burns more fuel for less ATP.",
+      "explanation": "Start with what is *not* damaged. Evidence D clears DNA, membranes and protein: no oxidised base, no MDA, no aggregation, no fallen melting temperature, total protein normal. So this is not a case where a biomolecule has been chemically destroyed. What has been disrupted is a process — and Evidence C tells you which process, describing carbohydrate and the two stages of its breakdown.\n\nNow read the four curves together. Glucose uptake and lactate output rise; oxygen consumption and ATP fall. Those two pairs moving in opposite directions have one standard interpretation: the cell has been forced off aerobic oxidation and onto anaerobic glycolysis.\n\nHere is the logic. Glycolysis runs in the cytosol, needs no oxygen, and converts glucose to pyruvate. Normally pyruvate enters the mitochondrion and is oxidised completely to CO₂ and water. If that mitochondrial arm is blocked — which the collapse in oxygen consumption to 12% shows it is — pyruvate has nowhere to go. But glycolysis cannot simply continue either, because it consumes NAD⁺ and depends on getting it back. So the cell converts pyruvate to lactate, which regenerates NAD⁺ and lets glycolysis keep running. That is why lactate rises so sharply and why the medium acidifies.\n\nThe ATP numbers then explain themselves. Complete aerobic oxidation of one glucose yields roughly 30–32 ATP; anaerobic glycolysis yields 2. Even tripling glucose uptake and draining glycogen to 22%, the cell cannot make up a fifteen-fold shortfall in yield — so ATP lands at 38% of control. AMPK, the cell’s low-energy sensor, switches on and drives exactly that compensation.\n\nOne honest nuance, because it is worth knowing: the toxicant’s direct molecular target in a case like this is usually a mitochondrial protein. But the question asks which biomolecule class has its *handling* disrupted, and the answer to that is carbohydrate — every measurement that moved is a carbohydrate-flux measurement. Distinguishing “what the toxicant binds” from “what the cell can no longer do” is a real and routine distinction in toxicology, not a quirk of this puzzle.",
+      "pathway": [
+        "Toxicant reaches the mitochondrion",
+        "Oxidative arm blocked — oxygen consumption falls to 12%",
+        "Pyruvate cannot be oxidised; NAD⁺ must be regenerated another way",
+        "Pyruvate → lactate; glycolysis keeps running anaerobically",
+        "Yield collapses from ~30–32 ATP to 2 ATP per glucose",
+        "Glucose uptake triples, glycogen drains, ATP still falls — AMPK activated"
+      ],
+      "keyTerms": [
+        {
+          "term": "Glycolysis",
+          "def": "The ten-step cytosolic pathway from glucose to pyruvate. Needs no oxygen; yields 2 ATP per glucose."
+        },
+        {
+          "term": "Anaerobic shift",
+          "def": "Converting pyruvate to lactate to regenerate NAD⁺ when the mitochondrial route is unavailable — keeps glycolysis running at a poor energy yield."
+        },
+        {
+          "term": "Oxygen consumption rate (OCR)",
+          "def": "How fast cells use oxygen. A direct readout of mitochondrial oxidative activity."
+        },
+        {
+          "term": "AMPK",
+          "def": "The cell’s low-energy sensor. Activated when ATP falls, it mobilises stored fuel and shuts down biosynthesis."
+        }
+      ],
+      "hints": {
+        "biomolecule": "Every readout that has moved — glucose, lactate, glycogen, ATP, oxygen consumption — belongs to one process. And every damage assay for the other three classes came back clean. Which class does Evidence C describe?",
+        "mechanism": "Nothing is chemically destroyed, so this is not a damage mechanism. Look at the divergence instead: fuel in and waste out are rising while oxygen use and ATP are falling. What has been interrupted between glucose and ATP?"
+      },
+      "wrongBiomolecule": {
+        "dna-rna": "The comet assay is normal and no oxidised base is elevated. The genome is intact — the cell simply cannot pay for what it wants to do.",
+        "protein": "Understandable, because the toxicant’s direct target in this kind of lesion usually is a mitochondrial protein. But no protein readout has moved: abundance is normal, no aggregates, no fallen Tm. Every measurement that *did* move is a carbohydrate-flux measurement.",
+        "lipid": "LDH release is normal and MDA is not elevated, so the membrane is neither leaking nor peroxidising."
+      },
+      "wrongMechanism": {
+        "lipid-peroxidation": "MDA is not elevated and LDH release is normal. No membrane is being consumed here.",
+        "oxidative-damage": "No ROS burst, no fall in the glutathione ratio, no 8-oxo-dG. The energy failure here is a routing problem, not radical chemistry.",
+        "protein-denaturation": "Total protein is normal, no aggregates are present, and no melting temperature has been reported as falling. Nothing is unfolding."
+      }
+    }
+  },
+  {
+    "id": "case-06",
+    "number": "06",
+    "title": "The Garbled Message",
+    "codename": "BTD‑2041‑F",
+    "difficulty": "Expert",
+    "channel": "dna-rna",
+    "specimen": "Fibroblast-like cell line (simulated culture)",
+    "exposure": "Flat polycyclic aromatic compound, four dose levels",
+    "duration": "4 h",
+    "brief": "Protein synthesis is failing, but the ribosomes are fine and the amino acids are there. The failure is further upstream, in a molecule the cell normally replaces every few hours — which is why this one showed up so fast.",
+    "evidence": [
+      {
+        "id": "A",
+        "kind": "Molecular Observation",
+        "icon": "microscope",
+        "title": "The helix has been wedged open",
+        "body": "The compound is flat, rigid and aromatic — roughly the dimensions of a base pair. Isolated DNA exposed to it lengthens by about 1.3-fold and unwinds locally, and its melting temperature *rises* rather than falls, because the inserted molecule adds stacking stability. No covalent adduct is detected and no strand break is found. Nothing has been cut; something has been wedged in.",
+        "readouts": [
+          {
+            "label": "Compound geometry",
+            "value": "Planar, polycyclic, aromatic",
+            "state": "info"
+          },
+          {
+            "label": "DNA contour length",
+            "value": "Increased ≈1.3×",
+            "state": "alert"
+          },
+          {
+            "label": "Local helix twist",
+            "value": "Unwound",
+            "state": "alert"
+          },
+          {
+            "label": "Covalent adducts / strand breaks",
+            "value": "None detected",
+            "state": "normal"
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "kind": "Experimental Data",
+        "icon": "chart",
+        "title": "New synthesis fails first",
+        "body": "Four measures against dose, and the order in which they fall is the entire diagnosis. Newly made RNA collapses hardest and fastest. The 45S ribosomal precursor — the longest transcript the cell makes, requiring the most template to be read without interruption — collapses hardest of all. Total RNA falls more slowly, because existing RNA is still being degraded at its usual rate and is simply not being replaced. New protein synthesis falls last, and least.",
+        "datasetId": "c6-dose",
+        "readouts": [
+          {
+            "label": "Nascent RNA synthesis",
+            "value": "9% of control at high dose",
+            "state": "alert"
+          },
+          {
+            "label": "45S rRNA precursor",
+            "value": "4% of control — longest transcript, hit hardest",
+            "state": "alert"
+          },
+          {
+            "label": "Total RNA",
+            "value": "27% — falls more slowly",
+            "state": "alert"
+          },
+          {
+            "label": "New protein synthesis",
+            "value": "15% — falls last",
+            "state": "alert"
+          }
+        ]
+      },
+      {
+        "id": "C",
+        "kind": "Biomolecule Clue",
+        "icon": "dna",
+        "title": "What has been silenced",
+        "body": "The molecule that disappears first is single-stranded. It uses ribose where its double-stranded template uses deoxyribose, and uracil where the template uses thymine. It is deliberately short-lived — the cell makes it, uses it and destroys it continuously — and it carries the message from the template to the ribosome. Because its half-life is short, a block on its production shows up within hours.",
+        "readouts": [
+          {
+            "label": "Strandedness",
+            "value": "Single-stranded",
+            "state": "info"
+          },
+          {
+            "label": "Sugar",
+            "value": "Ribose",
+            "state": "info"
+          },
+          {
+            "label": "Base unique to it",
+            "value": "Uracil (in place of thymine)",
+            "state": "info"
+          },
+          {
+            "label": "Half-life",
+            "value": "Short — minutes to hours",
+            "state": "info"
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "kind": "Cellular Effect",
+        "icon": "warning",
+        "title": "The nucleolus gives it away",
+        "body": "The nucleolus — the sub-nuclear factory where ribosomal RNA is transcribed — shows segregation, the classic morphological sign that ribosomal transcription has stopped. DNA content per cell is unchanged, so nothing has been destroyed or lost. Membranes are intact. Ribosome number is normal early on, and the amino acid pool is full. The machinery for making protein is fine; it is the instructions that have stopped arriving.",
+        "readouts": [
+          {
+            "label": "Nucleolar morphology",
+            "value": "Segregated — rRNA transcription halted",
+            "state": "alert"
+          },
+          {
+            "label": "DNA content per cell",
+            "value": "Unchanged",
+            "state": "normal"
+          },
+          {
+            "label": "Ribosome number (early)",
+            "value": "Normal",
+            "state": "normal"
+          },
+          {
+            "label": "Amino acid pool",
+            "value": "Full",
+            "state": "normal"
+          }
+        ]
+      }
+    ],
+    "datasets": [
+      {
+        "id": "c6-dose",
+        "title": "Synthesis rates and pool sizes against exposure",
+        "caption": "All normalised to the unexposed control. The gap between \"nascent RNA\" and \"total RNA\" is the point: synthesis stops immediately, the existing pool drains more slowly. Simulated data.",
+        "type": "line",
+        "xKey": "condition",
+        "xLabel": "Exposure level",
+        "yLabel": "% of unexposed control",
+        "yMax": 110,
+        "rows": [
+          {
+            "condition": "Control",
+            "Nascent RNA": 100,
+            "45S rRNA precursor": 100,
+            "Total RNA": 100,
+            "New protein": 100
+          },
+          {
+            "condition": "Low",
+            "Nascent RNA": 64,
+            "45S rRNA precursor": 52,
+            "Total RNA": 88,
+            "New protein": 79
+          },
+          {
+            "condition": "Medium",
+            "Nascent RNA": 31,
+            "45S rRNA precursor": 18,
+            "Total RNA": 60,
+            "New protein": 44
+          },
+          {
+            "condition": "High",
+            "Nascent RNA": 9,
+            "45S rRNA precursor": 4,
+            "Total RNA": 27,
+            "New protein": 15
+          }
+        ],
+        "series": [
+          {
+            "key": "Nascent RNA",
+            "channel": "dna-rna"
+          },
+          {
+            "key": "45S rRNA precursor",
+            "channel": "lipid"
+          },
+          {
+            "key": "Total RNA",
+            "channel": "protein"
+          },
+          {
+            "key": "New protein",
+            "channel": "carbohydrate"
+          }
+        ]
+      }
+    ],
+    "questions": {
+      "biomolecule": {
+        "prompt": "Which biomolecule is primarily affected?",
+        "options": [
+          "dna-rna",
+          "protein",
+          "lipid",
+          "carbohydrate"
+        ]
+      },
+      "mechanism": {
+        "prompt": "What is the most likely mechanism?",
+        "options": [
+          "nucleic-acid-intercalation",
+          "enzyme-inhibition",
+          "protein-denaturation",
+          "lipid-peroxidation"
+        ]
+      }
+    },
+    "solution": {
+      "biomolecule": "dna-rna",
+      "mechanism": "nucleic-acid-intercalation",
+      "verdict": "A flat aromatic molecule has wedged itself into the helix and stalled transcription.",
+      "explanation": "Evidence C describes RNA unambiguously: single-stranded, ribose, uracil, short-lived, carries the message to the ribosome. So the biomolecule is nucleic acid — and the reason the effect appeared within four hours is precisely that short half-life. DNA would have absorbed this insult silently for much longer.\n\nThe mechanism is written in Evidence A. The compound is flat, rigid, aromatic and about the size of a base pair. A molecule with those dimensions can slide between two stacked base pairs of the double helix — intercalation. The three observations that follow are the classic signature: the helix lengthens (because each inserted molecule pushes the neighbouring pairs apart), it unwinds locally (because the inserted molecule forces a change in twist), and its melting temperature *rises* (because the intercalator contributes additional stacking interactions, stabilising the duplex). That rise is worth noticing — almost every other mechanism in this case series lowers a stability measure, and this one raises it.\n\nNothing is broken. No covalent adduct, no strand break. The damage is purely geometric, and geometry is enough: RNA polymerase has to track along the template base by base, and a distorted, locally unwound, over-stabilised track stalls it.\n\nThe order of failure in Evidence B confirms it and rules out the alternatives. Nascent RNA falls first and hardest, because transcription is the process being obstructed. The 45S ribosomal precursor falls furthest of all, because it is the longest transcript the cell makes — the more template that must be read without interruption, the greater the chance of meeting an intercalated molecule. Total RNA falls more slowly, since the existing pool is still being degraded normally and merely not replaced. New protein synthesis falls last, as a downstream consequence — the ribosomes and amino acids in Evidence D are fine; they have simply run out of instructions. And the segregated nucleolus in Evidence D is the visible form of the same event.\n\nSeveral clinically important anticancer agents belong to this intercalator class, which is why their dose-limiting effects fall on the fastest-dividing, most transcriptionally active tissues.",
+      "pathway": [
+        "Planar aromatic compound enters the nucleus",
+        "Slides between stacked base pairs — intercalation, no covalent change",
+        "Helix lengthens ≈1.3×, unwinds locally, Tm rises",
+        "RNA polymerase stalls on the distorted template",
+        "Nascent RNA collapses — longest transcripts (45S rRNA) worst hit",
+        "Existing RNA drains; protein synthesis falls as a downstream consequence"
+      ],
+      "keyTerms": [
+        {
+          "term": "Intercalation",
+          "def": "Insertion of a flat aromatic molecule between adjacent base pairs of a nucleic acid duplex. Non-covalent, but strongly distorting."
+        },
+        {
+          "term": "Nascent RNA",
+          "def": "RNA made during the labelling window — a direct measure of transcription rate, as opposed to total RNA, which is a pool size."
+        },
+        {
+          "term": "45S rRNA precursor",
+          "def": "The long primary transcript that is processed into ribosomal RNAs. Being the longest transcript, it is the most sensitive to anything that stalls transcription."
+        },
+        {
+          "term": "Nucleolar segregation",
+          "def": "A visible reorganisation of the nucleolus that occurs when ribosomal RNA transcription is inhibited."
+        }
+      ],
+      "hints": {
+        "biomolecule": "Evidence C: single-stranded, ribose, uracil, short half-life, carries the message to the ribosome. Evidence D says the ribosomes and amino acids are fine, so the shortage is not of machinery or raw material — it is of instructions.",
+        "mechanism": "Evidence A has an unusual detail: melting temperature went *up*, not down, and the helix got longer. Nothing was cut and nothing bound covalently. What can make a duplex longer and more stable at the same time?"
+      },
+      "wrongBiomolecule": {
+        "protein": "Protein synthesis is falling, but Evidence D shows the ribosomes are intact and the amino acid pool is full. Protein is downstream of the real lesion — follow the failure back up the chain.",
+        "lipid": "Membranes are intact and no peroxidation marker is elevated.",
+        "carbohydrate": "No fuel-handling readout has moved, and nothing in the evidence touches glycolysis or ATP."
+      },
+      "wrongMechanism": {
+        "enzyme-inhibition": "RNA polymerase is indeed being stopped, so this is a tempting answer — but not by binding the polymerase. Evidence A shows the *template* has been altered: longer, unwound, more stable. The enzyme is fine; its track is not.",
+        "protein-denaturation": "No melting temperature has fallen, no aggregates have formed, and no protein structural measurement has moved. The Tm that changed in this case belongs to DNA, and it went up.",
+        "lipid-peroxidation": "No MDA, no 4-HNE, no loss of polyunsaturated tails, membranes intact. Nothing here is happening in a bilayer."
+      }
+    }
+  }
+]

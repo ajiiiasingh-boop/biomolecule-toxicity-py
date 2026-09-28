@@ -1,0 +1,132 @@
+[
+  {
+    "id": "q1",
+    "topic": "Biomolecules",
+    "question": "Which class of biomolecule is responsible for catalysing the great majority of cellular reactions?",
+    "options": [
+      "Carbohydrates",
+      "Proteins",
+      "Lipids",
+      "Phospholipids"
+    ],
+    "answer": 1,
+    "explanation": "Enzymes are proteins (a small number of catalytic RNAs exist, but they are the exception). Catalysis depends on the active site — a pocket in the folded structure whose shape and charge complement the substrate — which is why anything that blocks that pocket or destroys the fold costs the cell the reaction."
+  },
+  {
+    "id": "q2",
+    "topic": "Oxidative stress",
+    "question": "Oxidative stress is best defined as:",
+    "options": [
+      "Any presence of reactive oxygen species in a cell",
+      "An imbalance in which ROS production exceeds antioxidant defence capacity",
+      "The complete absence of oxygen from a tissue",
+      "The conversion of glucose to lactate under low oxygen"
+    ],
+    "answer": 1,
+    "explanation": "Healthy cells produce ROS all the time and neutralise them with superoxide dismutase, catalase, glutathione peroxidase and small-molecule antioxidants — ROS are even used deliberately as signals. Stress begins only when production outruns that capacity, which is why a falling GSH:GSSG ratio is a better indicator than a raw ROS number."
+  },
+  {
+    "id": "q3",
+    "topic": "DNA damage",
+    "question": "Which DNA base is most readily oxidised, giving 8-oxo-dG as the classic marker of oxidative DNA damage?",
+    "options": [
+      "Adenine",
+      "Thymine",
+      "Guanine",
+      "Cytosine"
+    ],
+    "answer": 2,
+    "explanation": "Guanine has the lowest oxidation potential of the four bases, so it is attacked preferentially. The product, 8-oxo-2′-deoxyguanosine, is mutagenic because it can pair with adenine instead of cytosine — so an unrepaired lesion becomes a G:C → T:A transversion at the next replication."
+  },
+  {
+    "id": "q4",
+    "topic": "Lipid peroxidation",
+    "question": "What makes polyunsaturated fatty acids especially vulnerable to radical attack?",
+    "options": [
+      "Their long hydrocarbon chains store a lot of energy",
+      "The weak bis-allylic C–H bond on the carbon between two double bonds",
+      "Their polar head groups attract charged radicals",
+      "They are the only lipids found in the plasma membrane"
+    ],
+    "answer": 1,
+    "explanation": "A carbon flanked by two double bonds holds its hydrogen unusually weakly, because the resulting radical is stabilised by delocalisation across both double bonds. That is the weakest C–H bond in the membrane and the point where peroxidation always starts — which is why saturated tails come through the same exposure almost untouched."
+  },
+  {
+    "id": "q5",
+    "topic": "Enzyme inhibition",
+    "question": "After exposure to a toxicant an enzyme shows a reduced Vmax with an unchanged Km. This is most consistent with:",
+    "options": [
+      "Competitive inhibition",
+      "Non-competitive or irreversible inhibition",
+      "Substrate depletion",
+      "Increased enzyme synthesis"
+    ],
+    "answer": 1,
+    "explanation": "Km reports how tightly the enzyme binds its substrate. A competitive inhibitor fights for the same site, so apparent Km rises and extra substrate can out-compete it. When Vmax falls at constant Km, the affected enzyme molecules are simply out of action and no amount of substrate recovers them — the signature of non-competitive or irreversible inhibition."
+  },
+  {
+    "id": "q6",
+    "topic": "Protein denaturation",
+    "question": "Denaturation of a protein primarily involves:",
+    "options": [
+      "Hydrolysis of peptide bonds into free amino acids",
+      "Loss of secondary, tertiary and quaternary structure while the peptide backbone stays intact",
+      "Removal of the protein’s metal cofactor only",
+      "Covalent modification of a single active-site residue"
+    ],
+    "answer": 1,
+    "explanation": "Denaturation is unfolding, not digestion. The covalent peptide backbone — primary structure — survives; what is lost is the network of weak interactions holding the fold. That is why total protein on a blot can be unchanged while activity has gone, and why melting temperature is the measurement that separates denaturation from active-site inhibition."
+  },
+  {
+    "id": "q7",
+    "topic": "Markers",
+    "question": "Which pair are the standard laboratory markers of lipid peroxidation?",
+    "options": [
+      "8-oxo-dG and γH2AX",
+      "MDA and 4-HNE",
+      "HSP70 and ubiquitin",
+      "Lactate and pyruvate"
+    ],
+    "answer": 1,
+    "explanation": "Malondialdehyde and 4-hydroxynonenal are reactive aldehydes produced when peroxidised fatty acid chains fragment. They are not just markers: both are electrophiles that form adducts on proteins and DNA, so they carry the damage out of the membrane. (8-oxo-dG and γH2AX are DNA markers; HSP70 and ubiquitin report protein misfolding.)"
+  },
+  {
+    "id": "q8",
+    "topic": "Metabolism",
+    "question": "A cell exposed to a toxicant shows increased glucose uptake, increased lactate output and decreased oxygen consumption. The best interpretation is:",
+    "options": [
+      "The cell has switched from aerobic oxidation to anaerobic glycolysis",
+      "The cell has stopped taking up glucose entirely",
+      "DNA replication has been blocked",
+      "The plasma membrane has been peroxidised"
+    ],
+    "answer": 0,
+    "explanation": "Falling oxygen consumption means the mitochondrial arm is blocked, so pyruvate cannot be fully oxidised. To keep glycolysis running the cell must regenerate NAD⁺, which it does by converting pyruvate to lactate. Since anaerobic glycolysis yields about 2 ATP per glucose against roughly 30–32 for complete oxidation, the cell burns far more fuel and still ends up with less ATP."
+  },
+  {
+    "id": "q9",
+    "topic": "Metal toxicity",
+    "question": "Redox-active metal ions such as Fe²⁺ increase hydroxyl radical production mainly by:",
+    "options": [
+      "Binding directly to DNA bases",
+      "Fenton-type chemistry, converting hydrogen peroxide into hydroxyl radical",
+      "Blocking glucose transporters in the membrane",
+      "Denaturing catalase by lowering its melting temperature"
+    ],
+    "answer": 1,
+    "explanation": "In the Fenton reaction the metal ion reduces hydrogen peroxide to hydroxyl radical and is then re-reduced by cellular reductants, so it cycles indefinitely — a small amount of free metal produces a large amount of radical. Hydroxyl radical cannot be enzymatically detoxified, because it reacts with whatever is adjacent before any enzyme could reach it."
+  },
+  {
+    "id": "q10",
+    "topic": "Cellular consequences",
+    "question": "Why does membrane damage continue to worsen after the initiating radical has been removed?",
+    "options": [
+      "The cell keeps synthesising the toxicant itself",
+      "Lipid peroxidation is a self-propagating chain reaction",
+      "Damaged DNA is copied into new membranes",
+      "Lactate accumulation dissolves the bilayer"
+    ],
+    "answer": 1,
+    "explanation": "Each peroxyl radical abstracts a hydrogen from the next polyunsaturated tail, creating a new lipid radical as it goes. Initiation needs the stressor; propagation does not. One initiating event can therefore destroy many lipid molecules, and the chain stops only when two radicals annihilate each other or a chain-breaking antioxidant such as vitamin E intervenes."
+  }
+]

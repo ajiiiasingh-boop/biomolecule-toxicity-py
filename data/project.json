@@ -1,0 +1,12 @@
+{
+  "name": "Biomolecule Toxicity Detective",
+  "version": "1.0.0",
+  "disclaimer": "This website is an educational simulation created to demonstrate how toxic stress can affect biomolecules and cellular processes. The cases, numerical values and investigation outcomes are simplified models intended for learning and should not be interpreted as clinical, diagnostic or real-world toxicology assessments.",
+  "score_rules": {
+    "correctBiomolecule": 50,
+    "correctMechanism": 50,
+    "hintPenalty": -10,
+    "firstAttemptBonus": 20,
+    "quizCorrect": 10
+  }
+}

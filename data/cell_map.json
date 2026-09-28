@@ -1,0 +1,159 @@
+{
+  "parts": [
+    {
+      "id": "membrane",
+      "name": "Plasma membrane",
+      "biomolecule": "lipid",
+      "x": 50,
+      "y": 6,
+      "labelSide": "top",
+      "function": "A phospholipid bilayer with embedded proteins. It separates inside from outside, holds the ion gradients the cell spends most of its ATP maintaining, and is the first thing any toxicant must cross.",
+      "underToxicity": "Lipid peroxidation consumes its polyunsaturated tails; the bilayer loses packing, permeability rises, ion gradients collapse and cytosolic enzymes such as LDH escape into the medium.",
+      "caseIds": [
+        "case-03"
+      ]
+    },
+    {
+      "id": "cytoplasm",
+      "name": "Cytoplasm",
+      "biomolecule": "carbohydrate",
+      "x": 26,
+      "y": 68,
+      "labelSide": "left",
+      "function": "The aqueous interior where glycolysis runs — the ten-step conversion of glucose to pyruvate — along with most protein synthesis and the majority of soluble enzyme activity.",
+      "underToxicity": "When the mitochondrial route is blocked, glycolysis is forced to run anaerobically here: pyruvate becomes lactate to regenerate NAD⁺, fuel consumption rises and ATP yield collapses.",
+      "caseIds": [
+        "case-05",
+        "case-01"
+      ]
+    },
+    {
+      "id": "nucleus",
+      "name": "Nucleus",
+      "biomolecule": "dna-rna",
+      "x": 62,
+      "y": 42,
+      "labelSide": "right",
+      "function": "Holds the genome and is where transcription happens. Its nucleolus is the sub-compartment where ribosomal RNA is made.",
+      "underToxicity": "Hydroxyl radicals oxidise guanine and break the backbone; bulky adducts and intercalated molecules stall the polymerases. p53 stabilises and the cell cycle stops while repair runs.",
+      "caseIds": [
+        "case-02",
+        "case-06"
+      ]
+    },
+    {
+      "id": "dna",
+      "name": "Chromatin / DNA",
+      "biomolecule": "dna-rna",
+      "x": 62,
+      "y": 42,
+      "labelSide": "right",
+      "nested": "nucleus",
+      "function": "The double-stranded information store, wound around histones. Copied before every division and transcribed continuously.",
+      "underToxicity": "8-oxo-dG from oxidised guanine, single- and double-strand breaks from sugar attack, bulky adducts from bioactivated environmental compounds, and helix distortion from intercalators.",
+      "caseIds": [
+        "case-02",
+        "case-06"
+      ]
+    },
+    {
+      "id": "mitochondria",
+      "name": "Mitochondria",
+      "biomolecule": "carbohydrate",
+      "x": 33,
+      "y": 34,
+      "labelSide": "left",
+      "function": "Completes the oxidation of pyruvate and fatty acids and runs the electron transport chain, producing the large majority of the cell’s ATP. Also the main site of background ROS production.",
+      "underToxicity": "Respiratory chain inhibitors stop electrons reaching oxygen; oxygen consumption collapses and the cell falls back on anaerobic glycolysis. Damaged mitochondria also leak more ROS, which feeds every other lesion.",
+      "caseIds": [
+        "case-05",
+        "case-02"
+      ]
+    },
+    {
+      "id": "er",
+      "name": "Endoplasmic reticulum",
+      "biomolecule": "protein",
+      "x": 74,
+      "y": 68,
+      "labelSide": "right",
+      "function": "Where secreted and membrane proteins are folded and quality-controlled, and where much of phase I metabolism (cytochrome P450) takes place — so it is also where many toxicants are bioactivated.",
+      "underToxicity": "Misfolded protein accumulates and triggers the unfolded protein response: more chaperones, more degradation, less new translation. If the load is not cleared, the response switches to apoptosis.",
+      "caseIds": [
+        "case-04"
+      ]
+    },
+    {
+      "id": "enzymes",
+      "name": "Cytosolic enzymes",
+      "biomolecule": "protein",
+      "x": 44,
+      "y": 80,
+      "labelSide": "left",
+      "function": "Folded catalytic proteins carrying out the soluble chemistry of the cell. Each depends absolutely on its active-site geometry.",
+      "underToxicity": "An inhibitor occupies the active site and activity falls with abundance unchanged; a thiol-binding metal occupies structural cysteines and the fold itself comes apart.",
+      "caseIds": [
+        "case-01",
+        "case-04"
+      ]
+    }
+  ],
+  "routes": {
+    "enzyme-inhibition": {
+      "label": "Active-site inhibition",
+      "path": [
+        "membrane",
+        "cytoplasm",
+        "enzymes"
+      ],
+      "note": "Toxicant crosses the membrane, reaches a cytosolic enzyme and occupies its catalytic site. Activity falls; the protein is untouched otherwise."
+    },
+    "oxidative-damage": {
+      "label": "Oxidative DNA damage",
+      "path": [
+        "membrane",
+        "mitochondria",
+        "nucleus",
+        "dna"
+      ],
+      "note": "Radical chemistry near chromatin oxidises guanine and cuts the backbone. Mitochondria are both a source of ROS and a casualty of them."
+    },
+    "lipid-peroxidation": {
+      "label": "Lipid peroxidation",
+      "path": [
+        "membrane",
+        "cytoplasm"
+      ],
+      "note": "The chain reaction runs within the bilayer itself and exports reactive aldehydes into the cytosol, where they form adducts on proteins and DNA."
+    },
+    "protein-denaturation": {
+      "label": "Denaturation and aggregation",
+      "path": [
+        "membrane",
+        "cytoplasm",
+        "enzymes",
+        "er"
+      ],
+      "note": "Folds come apart in the cytosol; the ER’s quality-control system registers the load and mounts the unfolded protein response."
+    },
+    "metabolic-interference": {
+      "label": "Energy metabolism block",
+      "path": [
+        "membrane",
+        "cytoplasm",
+        "mitochondria"
+      ],
+      "note": "Glycolysis still runs in the cytosol, but the mitochondrial arm is blocked — so the cell burns more glucose for far less ATP."
+    },
+    "nucleic-acid-intercalation": {
+      "label": "Intercalation and transcription block",
+      "path": [
+        "membrane",
+        "cytoplasm",
+        "nucleus",
+        "dna"
+      ],
+      "note": "A planar molecule wedges between base pairs and stalls RNA polymerase. New RNA collapses first; protein synthesis follows."
+    }
+  }
+}

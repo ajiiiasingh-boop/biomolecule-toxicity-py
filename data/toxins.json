@@ -1,0 +1,235 @@
+[
+  {
+    "id": "heavy-metals",
+    "name": "Heavy metal ions",
+    "tagline": "Ions that bind where they should not, and never leave.",
+    "overview": "Toxic metal ions are not metabolised and not easily excreted, so their effects accumulate. Most of their damage comes from two chemical habits: soft cations bind sulfur with very high affinity, so they occupy cysteine thiols that a protein was using either to catalyse or to hold its shape; and redox-active ions cycle between oxidation states, driving Fenton-type chemistry that generates hydroxyl radicals. A single ion can therefore inhibit an enzyme, destabilise a fold and start a radical cascade at the same time.",
+    "entries": [
+      {
+        "name": "Lead (Pb²⁺)",
+        "target": "protein",
+        "targetNote": "Thiol- and zinc-dependent enzymes; calcium-binding proteins",
+        "mechanism": "Binds cysteine thiols, and mimics Ca²⁺ and Zn²⁺ closely enough to occupy their sites in proteins that were built for those ions. The protein keeps its shape but gets the wrong chemistry.",
+        "consequence": "Haem synthesis is inhibited (δ-ALAD, a thiol enzyme, is a classic casualty), calcium-dependent signalling is distorted, and oxidative stress rises as antioxidant enzymes are inhibited.",
+        "markers": [
+          "δ-ALAD activity",
+          "Free thiol content",
+          "Protein carbonyls"
+        ]
+      },
+      {
+        "name": "Mercury (Hg²⁺, methylmercury)",
+        "target": "protein",
+        "targetNote": "Cysteine residues throughout the proteome",
+        "mechanism": "Among the strongest thiol binders in biology. Occupies –SH groups indiscriminately, inhibiting catalysis where the cysteine was catalytic and destabilising the fold where it was structural. Glutathione, itself a thiol, is bound and depleted — so the antioxidant defence falls at the same time.",
+        "consequence": "Widespread enzyme inhibition, protein aggregation, and a secondary wave of oxidative damage once glutathione is exhausted. Microtubule assembly is particularly sensitive.",
+        "markers": [
+          "Free thiol content",
+          "GSH depletion",
+          "Protein aggregation / turbidity"
+        ]
+      },
+      {
+        "name": "Cadmium (Cd²⁺)",
+        "target": "protein",
+        "targetNote": "Zinc sites, including zinc-finger transcription factors and DNA repair proteins",
+        "mechanism": "Displaces Zn²⁺ from zinc-finger domains. The domain still folds, but with the wrong ion its DNA-binding geometry is wrong — so transcription factors and repair proteins misread their targets. Cadmium also depletes glutathione and induces metallothionein.",
+        "consequence": "Indirect genotoxicity: cadmium barely damages DNA itself, but it disables the proteins that repair DNA, so background oxidative lesions accumulate unrepaired.",
+        "markers": [
+          "Metallothionein induction",
+          "GSH depletion",
+          "8-oxo-dG accumulation"
+        ]
+      },
+      {
+        "name": "Arsenic (As³⁺)",
+        "target": "protein",
+        "targetNote": "Vicinal dithiols, especially in pyruvate dehydrogenase",
+        "mechanism": "Trivalent arsenic bridges pairs of neighbouring thiols, locking them together. Pyruvate dehydrogenase, which uses a lipoic-acid dithiol, is a prime target — so the handover of pyruvate into mitochondrial oxidation is blocked.",
+        "consequence": "Energy metabolism is disrupted at the junction between glycolysis and the citric acid cycle: lactate rises, ATP falls. Chronic exposure additionally generates ROS.",
+        "markers": [
+          "Lactate:pyruvate ratio",
+          "Oxygen consumption rate",
+          "Intracellular ATP"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "oxidative",
+    "name": "Reactive oxygen species and oxidative stressors",
+    "tagline": "The chemistry that does not care what it hits.",
+    "overview": "Every aerobic cell makes reactive oxygen species continuously, mostly as electrons leaking from the mitochondrial respiratory chain, and neutralises them with superoxide dismutase, catalase, glutathione peroxidase and small-molecule antioxidants. Oxidative stress is the state where production exceeds that capacity. What makes ROS distinctive as toxicants is their lack of selectivity: the hydroxyl radical reacts with essentially the first molecule it meets, so the damage pattern is decided by geography, not by affinity.",
+    "entries": [
+      {
+        "name": "Superoxide (O₂•⁻)",
+        "target": "protein",
+        "targetNote": "Iron–sulfur cluster enzymes",
+        "mechanism": "Moderately reactive on its own. Its main significance is as a precursor: superoxide dismutase converts it to hydrogen peroxide, and it also releases iron from iron–sulfur clusters, supplying the free iron that Fenton chemistry needs.",
+        "consequence": "Inactivation of iron–sulfur enzymes such as aconitase, plus an expanded pool of free iron that amplifies everything downstream.",
+        "markers": [
+          "Aconitase activity",
+          "SOD activity",
+          "Labile iron pool"
+        ]
+      },
+      {
+        "name": "Hydrogen peroxide (H₂O₂)",
+        "target": "protein",
+        "targetNote": "Cysteine thiols; precursor to hydroxyl radical",
+        "mechanism": "Relatively unreactive and able to cross membranes, which makes it an excellent signalling molecule at low concentration and a dangerous one at high concentration — because in the presence of Fe²⁺ or Cu⁺ it is converted to hydroxyl radical.",
+        "consequence": "Reversible oxidation of signalling cysteines at low levels; at high levels, a source of indiscriminate radical damage wherever free transition metal is available.",
+        "markers": [
+          "Catalase activity",
+          "Peroxiredoxin oxidation state",
+          "DCF fluorescence"
+        ]
+      },
+      {
+        "name": "Hydroxyl radical (•OH)",
+        "target": "dna-rna",
+        "targetNote": "Whatever is adjacent — in the nucleus, DNA",
+        "mechanism": "The most reactive species in this story, with a diffusion distance of only a few nanometres. It cannot be enzymatically detoxified because it reacts before any enzyme could reach it. It oxidises guanine to 8-oxo-dG and abstracts hydrogen from deoxyribose, cutting the backbone.",
+        "consequence": "Oxidised bases, single- and double-strand breaks, and mutation if repair does not precede replication.",
+        "markers": [
+          "8-oxo-dG",
+          "Comet assay",
+          "γH2AX foci"
+        ]
+      },
+      {
+        "name": "Redox-cycling compounds",
+        "target": "lipid",
+        "targetNote": "Mitochondrial and membrane compartments",
+        "mechanism": "A compound that accepts an electron from a cellular reductase and passes it to oxygen becomes a catalytic ROS generator: it is regenerated each cycle, so a small amount produces superoxide indefinitely for as long as reducing equivalents last.",
+        "consequence": "Sustained oxidative stress, NADPH depletion, and lipid peroxidation in the membranes nearest the cycling site.",
+        "markers": [
+          "NADPH:NADP⁺ ratio",
+          "MDA",
+          "GSH:GSSG ratio"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "environmental",
+    "name": "Environmental toxicants",
+    "tagline": "Often harmless until the cell activates them.",
+    "overview": "Many environmental compounds are not themselves reactive. They become toxic through bioactivation: phase I metabolism, mostly by cytochrome P450 enzymes, adds reactive oxygen-containing groups in an attempt to make the compound easier to excrete, and the intermediate produced on the way is an electrophile that attacks DNA and proteins. This is one of toxicology’s central ironies — the detoxification system creates the toxicant.",
+    "entries": [
+      {
+        "name": "Polycyclic aromatic hydrocarbons",
+        "target": "dna-rna",
+        "targetNote": "Guanine N⁷ and N² positions",
+        "mechanism": "Flat, unreactive, lipophilic molecules produced by incomplete combustion. Cytochrome P450 converts them to epoxides, which bind covalently to guanine, forming a bulky adduct that distorts the helix. Their flatness also allows intercalation.",
+        "consequence": "Bulky DNA adducts stall replication; if bypassed by error-prone polymerases they become fixed mutations. A recognised mechanism of chemical carcinogenesis.",
+        "markers": [
+          "DNA adduct measurement",
+          "CYP1A1 induction",
+          "Micronucleus assay"
+        ]
+      },
+      {
+        "name": "Aflatoxin B₁ (fungal mycotoxin)",
+        "target": "dna-rna",
+        "targetNote": "Guanine N⁷",
+        "mechanism": "Bioactivated by cytochrome P450 to a highly reactive epoxide that attacks guanine. The resulting adduct is notably associated with one specific mutation in the p53 tumour-suppressor gene.",
+        "consequence": "Mutation of a key tumour suppressor, removing the checkpoint that would otherwise stop a damaged cell dividing.",
+        "markers": [
+          "Aflatoxin–N⁷-guanine adducts",
+          "p53 mutation spectrum"
+        ]
+      },
+      {
+        "name": "Organophosphate-class inhibitors",
+        "target": "protein",
+        "targetNote": "The catalytic serine of acetylcholinesterase",
+        "mechanism": "Phosphorylates the serine residue in the enzyme’s active site. The bond is covalent and only slowly reversible — and after a rearrangement known as ageing, it is effectively permanent. The enzyme is intact and correctly folded; its catalytic residue is simply occupied.",
+        "consequence": "Acetylcholine accumulates at synapses because it is no longer being broken down, and cholinergic signalling is continuously overstimulated. The textbook example of irreversible enzyme inhibition.",
+        "markers": [
+          "Cholinesterase activity",
+          "Substrate accumulation"
+        ]
+      },
+      {
+        "name": "Acrylamide",
+        "target": "protein",
+        "targetNote": "Cysteine thiols on motor and structural proteins",
+        "mechanism": "An electrophile that adds to nucleophilic thiol groups (a Michael addition), forming covalent adducts on proteins involved in axonal transport.",
+        "consequence": "Progressive failure of long-distance transport within neurons — damage accumulating with cumulative dose rather than appearing at a threshold.",
+        "markers": [
+          "Haemoglobin adducts",
+          "Protein thiol content"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "chemical-physical",
+    "name": "Chemical and physical stressors",
+    "tagline": "Damage that needs no enzyme and no metabolism.",
+    "overview": "Some stressors act by physical chemistry alone. Heat, pH extremes and organic solvents disturb the weak interactions that hold folds and membranes together; alkylating agents attach carbon groups to nucleophilic sites wherever they find them; simple respiratory inhibitors occupy one site in the electron transport chain. None of these requires bioactivation, so their effects are fast and dose-dependent in a very direct way.",
+    "entries": [
+      {
+        "name": "Organic solvents",
+        "target": "lipid",
+        "targetNote": "Membrane bilayers and protein hydrophobic cores",
+        "mechanism": "Partition into the bilayer and into the hydrophobic interior of folded proteins, weakening the hydrophobic effect that holds both structures together.",
+        "consequence": "Membrane fluidity and permeability rise; proteins unfold and aggregate. Effects scale with lipid solubility, which is why the classic structure–activity relationships in this area track the partition coefficient.",
+        "markers": [
+          "Membrane fluidity",
+          "LDH release",
+          "Protein Tm"
+        ]
+      },
+      {
+        "name": "pH extremes",
+        "target": "protein",
+        "targetNote": "Ionisable side chains",
+        "mechanism": "Changes the protonation state of acidic and basic side chains, so ionic bonds that were holding the fold together are broken, and catalytic residues that had to be charged (or uncharged) are in the wrong state.",
+        "consequence": "Loss of tertiary structure and catalytic activity, without any covalent change to the chain. Fully reversible when mild, not when severe.",
+        "markers": [
+          "Circular dichroism",
+          "Enzyme activity vs pH",
+          "Turbidity"
+        ]
+      },
+      {
+        "name": "Thermal stress",
+        "target": "protein",
+        "targetNote": "The whole folded proteome",
+        "mechanism": "Thermal energy exceeds what the hydrogen bonds and hydrophobic packing can hold. Above the melting temperature the fold is lost cooperatively — an all-or-nothing transition rather than a gradual loosening.",
+        "consequence": "Denaturation and aggregation, triggering the heat-shock response: chaperone induction, ubiquitin tagging, reduced translation.",
+        "markers": [
+          "Tm",
+          "HSP70 induction",
+          "Insoluble protein fraction"
+        ]
+      },
+      {
+        "name": "Alkylating agents",
+        "target": "dna-rna",
+        "targetNote": "Guanine N⁷ and O⁶ positions",
+        "mechanism": "Transfer an alkyl group to a nucleophilic site. Alkylation at O⁶ of guanine is the dangerous one: the modified base pairs with thymine instead of cytosine, so the error is invisible to the replication machinery.",
+        "consequence": "G:C → A:T transitions unless the specific repair protein MGMT removes the group first. Bifunctional agents can crosslink the two strands, blocking replication outright.",
+        "markers": [
+          "O⁶-methylguanine",
+          "MGMT activity",
+          "Crosslink assays"
+        ]
+      },
+      {
+        "name": "Respiratory chain inhibitors",
+        "target": "carbohydrate",
+        "targetNote": "Complex IV (cytochrome c oxidase) and other ETC complexes",
+        "mechanism": "Bind at one specific site in the electron transport chain and stop electrons reaching oxygen. Cyanide and carbon monoxide at complex IV are the textbook examples. The block is at a protein, but what it costs the cell is the ability to finish oxidising carbohydrate.",
+        "consequence": "Oxygen consumption collapses, the cell shifts to anaerobic glycolysis, lactate rises and ATP falls — the signature investigated in Case 05.",
+        "markers": [
+          "Oxygen consumption rate",
+          "Lactate",
+          "ATP:ADP ratio"
+        ]
+      }
+    ]
+  }
+]

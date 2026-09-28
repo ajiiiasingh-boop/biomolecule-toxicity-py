@@ -1,0 +1,6 @@
+# Only needed to re-download and rebuild the real datasets with scripts/get_data.py.
+# The website itself runs with requirements.txt alone.
+pandas>=2.0
+numpy>=1.26
+rdkit>=2024.3
+kagglehub>=0.3

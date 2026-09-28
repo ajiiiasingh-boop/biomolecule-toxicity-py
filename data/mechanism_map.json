@@ -1,0 +1,124 @@
+{
+  "title": "From exposure to effect",
+  "intro": "Toxicity is a chain, not an event. Each stage has its own timescale, its own laboratory readouts and its own defences, and a toxicant can be stopped at any of them. Reading a case means working out which link has actually been broken — and the answer is rarely the stage where the symptom appears.",
+  "stages": [
+    {
+      "id": "exposure",
+      "index": 1,
+      "name": "Toxic exposure",
+      "short": "A substance reaches the cell",
+      "timescale": "Seconds to hours",
+      "body": "Before anything can be damaged, the substance has to get to the cell and then into it. Lipophilic molecules cross the membrane by simple diffusion; charged ones need a transporter, and often ride in on a transporter built for something chemically similar. Dose at this stage is not the dose that was applied — it is the concentration that actually arrives, which is why absorption, distribution, metabolism and excretion sit at the front of every toxicology course.",
+      "detail": [
+        "Route and duration decide how much arrives, and acute and chronic exposure to the same substance can produce entirely different lesions.",
+        "Many compounds arrive harmless and are converted to their reactive form inside the cell by phase I metabolism — bioactivation.",
+        "Phase II conjugation and efflux pumps work in the opposite direction, removing the compound before it can act."
+      ],
+      "defences": [
+        "Barrier membranes",
+        "Efflux transporters",
+        "Phase II conjugation"
+      ],
+      "markers": [
+        "Internal dose",
+        "Tissue distribution",
+        "Metabolite profile"
+      ]
+    },
+    {
+      "id": "interaction",
+      "index": 2,
+      "name": "Molecular interaction",
+      "short": "It binds or reacts with something",
+      "timescale": "Milliseconds to minutes",
+      "body": "The toxicant meets its molecular target. This is the step that decides everything downstream, and it comes in two flavours. Selective binding — an inhibitor in an active site, a metal in a zinc finger, an intercalator between base pairs — hits one target with high affinity, so effects appear at low dose and are specific. Indiscriminate reaction — a hydroxyl radical, a reactive electrophile — hits whatever is nearest, so the damage pattern is decided by where the reactive species was generated.",
+      "detail": [
+        "Selective interactions are often reversible and often competitive; indiscriminate ones are usually covalent and permanent.",
+        "Covalent binding is why some effects outlast the presence of the toxicant entirely.",
+        "The same molecule can do both: a metal ion can occupy a specific site and drive radical chemistry at the same time."
+      ],
+      "defences": [
+        "Glutathione and other nucleophile scavengers",
+        "Metallothionein",
+        "Antioxidant enzymes"
+      ],
+      "markers": [
+        "Binding affinity",
+        "Adduct measurement",
+        "Target occupancy"
+      ]
+    },
+    {
+      "id": "damage",
+      "index": 3,
+      "name": "Biomolecular damage",
+      "short": "A biomolecule stops being what it was",
+      "timescale": "Minutes to hours",
+      "body": "The interaction becomes a change in a biomolecule. A protein loses its catalytic activity or its fold; DNA acquires an oxidised base, an adduct or a break; a membrane loses its polyunsaturated tails and its packing; a metabolic route stops carrying flux. This is the stage the Toxicity Detective cases are built to diagnose, because it is where the mechanism is still legible — further downstream everything starts to look like the same generic distress.",
+      "detail": [
+        "Amplification begins here: one inhibited enzyme costs the cell every reaction downstream of it, and one initiating radical can peroxidise hundreds of lipids.",
+        "Damage is not equivalent across classes. A damaged protein can be replaced; a mutated gene is copied into every daughter cell.",
+        "Repair is running the entire time, so what a measurement records is the balance between damage and repair, not damage alone."
+      ],
+      "defences": [
+        "DNA repair pathways",
+        "Chaperones and the proteasome",
+        "Vitamin E and GPX4",
+        "Membrane remodelling"
+      ],
+      "markers": [
+        "8-oxo-dG",
+        "Protein carbonyls / Tm",
+        "MDA and 4-HNE",
+        "Enzyme specific activity"
+      ]
+    },
+    {
+      "id": "dysfunction",
+      "index": 4,
+      "name": "Cellular dysfunction",
+      "short": "The cell stops working properly",
+      "timescale": "Hours to days",
+      "body": "Molecular damage becomes a cell that no longer does its job. ATP falls, ion gradients slip, signalling pathways fire wrongly or not at all, the cell cycle stops at a checkpoint. The cell is not passive here: it mounts a stress response — antioxidant genes, chaperones, repair enzymes, autophagy — and much of what is measurable at this stage is the response rather than the injury.",
+      "detail": [
+        "Below a threshold the cell adapts and recovers, often with raised defences; above it, the damage is committed.",
+        "The commitment point is usually mitochondrial: permeabilisation releases cytochrome c and starts apoptosis.",
+        "Which death pathway follows depends on the lesion — apoptosis if ATP is still available, necrosis if it is not, ferroptosis if the lesion is runaway lipid peroxidation."
+      ],
+      "defences": [
+        "Adaptive stress responses",
+        "Autophagy",
+        "Cell cycle checkpoints"
+      ],
+      "markers": [
+        "ATP:ADP ratio",
+        "Mitochondrial membrane potential",
+        "Caspase activation",
+        "Cell cycle distribution"
+      ]
+    },
+    {
+      "id": "effect",
+      "index": 5,
+      "name": "Biological effect",
+      "short": "The organism shows it",
+      "timescale": "Days to years",
+      "body": "Enough affected cells, and the tissue and then the organism show it. The form the effect takes depends on which biomolecule was hit and in which tissue: a mutated gene in a dividing tissue points toward cancer; lost neurons point toward a neurological deficit; an inhibited synaptic enzyme points toward an acute functional crisis. This is the stage a clinician or a regulator sees — and it is the stage furthest removed from the mechanism, which is exactly why mechanistic investigation is worth doing.",
+      "detail": [
+        "Effects separate into acute (immediate, dose-driven) and chronic (accumulated over long exposure).",
+        "Different tissues have very different susceptibilities to the same lesion, largely because of how fast they divide and how much they metabolise.",
+        "Working backwards from an effect to a mechanism is much harder than working forwards — which is the argument for measuring at stages 2 and 3."
+      ],
+      "defences": [
+        "Tissue regeneration",
+        "Immune clearance of damaged cells",
+        "Physiological compensation"
+      ],
+      "markers": [
+        "Histopathology",
+        "Organ function tests",
+        "Clinical or epidemiological outcome"
+      ]
+    }
+  ]
+}
