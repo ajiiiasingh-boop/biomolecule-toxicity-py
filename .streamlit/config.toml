@@ -1,0 +1,47 @@
+# Streamlit settings: the warm light-pink theme, the same colours as the website.
+# (This is a settings file, not code. Streamlit reads it when the app starts.)
+
+[theme]
+base = "light"
+primaryColor = "#d6336c"
+backgroundColor = "#fff5f3"
+secondaryBackgroundColor = "#ffe8ec"
+textColor = "#3d2130"
+linkColor = "#b82a5b"
+borderColor = "#f0c9d4"
+dataframeHeaderBackgroundColor = "#ffe8ec"
+showWidgetBorder = true
+baseRadius = "0.75rem"
+
+font = "IBM Plex Sans:https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap, sans-serif"
+headingFont = "Saira Condensed:https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700&display=swap, sans-serif"
+codeFont = "IBM Plex Mono:https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap, monospace"
+headingFontWeights = [700, 700, 600, 600, 600, 600]
+
+# One colour per biomolecule class: blue = DNA/RNA, green = proteins,
+# red = lipids, yellow = carbohydrates. Orange marks abnormal readings.
+blueColor = "#2566bd"
+greenColor = "#0e8f7f"
+redColor = "#cf3b4a"
+yellowColor = "#b8860b"
+orangeColor = "#c2410c"
+violetColor = "#8a4fd6"
+grayColor = "#8e6a79"
+blueTextColor = "#1d56a3"
+greenTextColor = "#0b7063"
+redTextColor = "#b02f3d"
+yellowTextColor = "#7f5d06"
+orangeTextColor = "#a8380a"
+violetTextColor = "#6b3fb0"
+grayTextColor = "#7a5866"
+chartCategoricalColors = ["#2566bd", "#0e8f7f", "#cf3b4a", "#b8860b", "#d6336c"]
+
+[theme.sidebar]
+backgroundColor = "#ffecef"
+secondaryBackgroundColor = "#fff5f3"
+
+[client]
+toolbarMode = "minimal"
+
+[browser]
+gatherUsageStats = false
